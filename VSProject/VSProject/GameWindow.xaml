@@ -1,0 +1,313 @@
+﻿<Window x:Class="VSProject.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VSProject"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="550" Width="500">
+    <Grid>
+        <Grid x:Name="MinefieldGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="400" Margin="45,50,0,0" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ClickButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="400" Grid.RowSpan="16" Click="ClickButton_Click" Panel.ZIndex="1" Grid.ColumnSpan="16" Opacity="0" MouseRightButtonDown="ClickButton_MouseRightButtonDown" Cursor="Hand">
+                <Button.Background>
+                    <ImageBrush />
+                </Button.Background>
+            </Button>
+            <Image x:Name="Image0_0" Source="Images/Grass.png" Grid.Row="0" Grid.Column="0"></Image>
+            <Image x:Name="Image1_0" Source="Images/Grass.png" Grid.Row="1" Grid.Column="0"></Image>
+            <Image x:Name="Image2_0" Source="Images/Grass.png" Grid.Row="2" Grid.Column="0"></Image>
+            <Image x:Name="Image3_0" Source="Images/Grass.png" Grid.Row="3" Grid.Column="0"></Image>
+            <Image x:Name="Image4_0" Source="Images/Grass.png" Grid.Row="4" Grid.Column="0"></Image>
+            <Image x:Name="Image5_0" Source="Images/Grass.png" Grid.Row="5" Grid.Column="0"></Image>
+            <Image x:Name="Image6_0" Source="Images/Grass.png" Grid.Row="6" Grid.Column="0"></Image>
+            <Image x:Name="Image7_0" Source="Images/Grass.png" Grid.Row="7" Grid.Column="0"></Image>
+            <Image x:Name="Image8_0" Source="Images/Grass.png" Grid.Row="8" Grid.Column="0"></Image>
+            <Image x:Name="Image9_0" Source="Images/Grass.png" Grid.Row="9" Grid.Column="0"></Image>
+            <Image x:Name="Image10_0" Source="Images/Grass.png" Grid.Row="10" Grid.Column="0"></Image>
+            <Image x:Name="Image11_0" Source="Images/Grass.png" Grid.Row="11" Grid.Column="0"></Image>
+            <Image x:Name="Image12_0" Source="Images/Grass.png" Grid.Row="12" Grid.Column="0"></Image>
+            <Image x:Name="Image13_0" Source="Images/Grass.png" Grid.Row="13" Grid.Column="0"></Image>
+            <Image x:Name="Image14_0" Source="Images/Grass.png" Grid.Row="14" Grid.Column="0"></Image>
+            <Image x:Name="Image15_0" Source="Images/Grass.png" Grid.Row="15" Grid.Column="0"></Image>
+            <Image x:Name="Image0_1" Source="Images/Grass.png" Grid.Row="0" Grid.Column="1"></Image>
+            <Image x:Name="Image1_1" Source="Images/Grass.png" Grid.Row="1" Grid.Column="1"></Image>
+            <Image x:Name="Image2_1" Source="Images/Grass.png" Grid.Row="2" Grid.Column="1"></Image>
+            <Image x:Name="Image3_1" Source="Images/Grass.png" Grid.Row="3" Grid.Column="1"></Image>
+            <Image x:Name="Image4_1" Source="Images/Grass.png" Grid.Row="4" Grid.Column="1"></Image>
+            <Image x:Name="Image5_1" Source="Images/Grass.png" Grid.Row="5" Grid.Column="1"></Image>
+            <Image x:Name="Image6_1" Source="Images/Grass.png" Grid.Row="6" Grid.Column="1"></Image>
+            <Image x:Name="Image7_1" Source="Images/Grass.png" Grid.Row="7" Grid.Column="1"></Image>
+            <Image x:Name="Image8_1" Source="Images/Grass.png" Grid.Row="8" Grid.Column="1"></Image>
+            <Image x:Name="Image9_1" Source="Images/Grass.png" Grid.Row="9" Grid.Column="1"></Image>
+            <Image x:Name="Image10_1" Source="Images/Grass.png" Grid.Row="10" Grid.Column="1"></Image>
+            <Image x:Name="Image11_1" Source="Images/Grass.png" Grid.Row="11" Grid.Column="1"></Image>
+            <Image x:Name="Image12_1" Source="Images/Grass.png" Grid.Row="12" Grid.Column="1"></Image>
+            <Image x:Name="Image13_1" Source="Images/Grass.png" Grid.Row="13" Grid.Column="1"></Image>
+            <Image x:Name="Image14_1" Source="Images/Grass.png" Grid.Row="14" Grid.Column="1"></Image>
+            <Image x:Name="Image15_1" Source="Images/Grass.png" Grid.Row="15" Grid.Column="1"></Image>
+            <Image x:Name="Image0_2" Source="Images/Grass.png" Grid.Row="0" Grid.Column="2"></Image>
+            <Image x:Name="Image1_2" Source="Images/Grass.png" Grid.Row="1" Grid.Column="2"></Image>
+            <Image x:Name="Image2_2" Source="Images/Grass.png" Grid.Row="2" Grid.Column="2"></Image>
+            <Image x:Name="Image3_2" Source="Images/Grass.png" Grid.Row="3" Grid.Column="2"></Image>
+            <Image x:Name="Image4_2" Source="Images/Grass.png" Grid.Row="4" Grid.Column="2"></Image>
+            <Image x:Name="Image5_2" Source="Images/Grass.png" Grid.Row="5" Grid.Column="2"></Image>
+            <Image x:Name="Image6_2" Source="Images/Grass.png" Grid.Row="6" Grid.Column="2"></Image>
+            <Image x:Name="Image7_2" Source="Images/Grass.png" Grid.Row="7" Grid.Column="2"></Image>
+            <Image x:Name="Image8_2" Source="Images/Grass.png" Grid.Row="8" Grid.Column="2"></Image>
+            <Image x:Name="Image9_2" Source="Images/Grass.png" Grid.Row="9" Grid.Column="2"></Image>
+            <Image x:Name="Image10_2" Source="Images/Grass.png" Grid.Row="10" Grid.Column="2"></Image>
+            <Image x:Name="Image11_2" Source="Images/Grass.png" Grid.Row="11" Grid.Column="2"></Image>
+            <Image x:Name="Image12_2" Source="Images/Grass.png" Grid.Row="12" Grid.Column="2"></Image>
+            <Image x:Name="Image13_2" Source="Images/Grass.png" Grid.Row="13" Grid.Column="2"></Image>
+            <Image x:Name="Image14_2" Source="Images/Grass.png" Grid.Row="14" Grid.Column="2"></Image>
+            <Image x:Name="Image15_2" Source="Images/Grass.png" Grid.Row="15" Grid.Column="2"></Image>
+            <Image x:Name="Image0_3" Source="Images/Grass.png" Grid.Row="0" Grid.Column="3"></Image>
+            <Image x:Name="Image1_3" Source="Images/Grass.png" Grid.Row="1" Grid.Column="3"></Image>
+            <Image x:Name="Image2_3" Source="Images/Grass.png" Grid.Row="2" Grid.Column="3"></Image>
+            <Image x:Name="Image3_3" Source="Images/Grass.png" Grid.Row="3" Grid.Column="3"></Image>
+            <Image x:Name="Image4_3" Source="Images/Grass.png" Grid.Row="4" Grid.Column="3"></Image>
+            <Image x:Name="Image5_3" Source="Images/Grass.png" Grid.Row="5" Grid.Column="3"></Image>
+            <Image x:Name="Image6_3" Source="Images/Grass.png" Grid.Row="6" Grid.Column="3"></Image>
+            <Image x:Name="Image7_3" Source="Images/Grass.png" Grid.Row="7" Grid.Column="3"></Image>
+            <Image x:Name="Image8_3" Source="Images/Grass.png" Grid.Row="8" Grid.Column="3"></Image>
+            <Image x:Name="Image9_3" Source="Images/Grass.png" Grid.Row="9" Grid.Column="3"></Image>
+            <Image x:Name="Image10_3" Source="Images/Grass.png" Grid.Row="10" Grid.Column="3"></Image>
+            <Image x:Name="Image11_3" Source="Images/Grass.png" Grid.Row="11" Grid.Column="3"></Image>
+            <Image x:Name="Image12_3" Source="Images/Grass.png" Grid.Row="12" Grid.Column="3"></Image>
+            <Image x:Name="Image13_3" Source="Images/Grass.png" Grid.Row="13" Grid.Column="3"></Image>
+            <Image x:Name="Image14_3" Source="Images/Grass.png" Grid.Row="14" Grid.Column="3"></Image>
+            <Image x:Name="Image15_3" Source="Images/Grass.png" Grid.Row="15" Grid.Column="3"></Image>
+            <Image x:Name="Image0_4" Source="Images/Grass.png" Grid.Row="0" Grid.Column="4"></Image>
+            <Image x:Name="Image1_4" Source="Images/Grass.png" Grid.Row="1" Grid.Column="4"></Image>
+            <Image x:Name="Image2_4" Source="Images/Grass.png" Grid.Row="2" Grid.Column="4"></Image>
+            <Image x:Name="Image3_4" Source="Images/Grass.png" Grid.Row="3" Grid.Column="4"></Image>
+            <Image x:Name="Image4_4" Source="Images/Grass.png" Grid.Row="4" Grid.Column="4"></Image>
+            <Image x:Name="Image5_4" Source="Images/Grass.png" Grid.Row="5" Grid.Column="4"></Image>
+            <Image x:Name="Image6_4" Source="Images/Grass.png" Grid.Row="6" Grid.Column="4"></Image>
+            <Image x:Name="Image7_4" Source="Images/Grass.png" Grid.Row="7" Grid.Column="4"></Image>
+            <Image x:Name="Image8_4" Source="Images/Grass.png" Grid.Row="8" Grid.Column="4"></Image>
+            <Image x:Name="Image9_4" Source="Images/Grass.png" Grid.Row="9" Grid.Column="4"></Image>
+            <Image x:Name="Image10_4" Source="Images/Grass.png" Grid.Row="10" Grid.Column="4"></Image>
+            <Image x:Name="Image11_4" Source="Images/Grass.png" Grid.Row="11" Grid.Column="4"></Image>
+            <Image x:Name="Image12_4" Source="Images/Grass.png" Grid.Row="12" Grid.Column="4"></Image>
+            <Image x:Name="Image13_4" Source="Images/Grass.png" Grid.Row="13" Grid.Column="4"></Image>
+            <Image x:Name="Image14_4" Source="Images/Grass.png" Grid.Row="14" Grid.Column="4"></Image>
+            <Image x:Name="Image15_4" Source="Images/Grass.png" Grid.Row="15" Grid.Column="4"></Image>
+            <Image x:Name="Image0_5" Source="Images/Grass.png" Grid.Row="0" Grid.Column="5"></Image>
+            <Image x:Name="Image1_5" Source="Images/Grass.png" Grid.Row="1" Grid.Column="5"></Image>
+            <Image x:Name="Image2_5" Source="Images/Grass.png" Grid.Row="2" Grid.Column="5"></Image>
+            <Image x:Name="Image3_5" Source="Images/Grass.png" Grid.Row="3" Grid.Column="5"></Image>
+            <Image x:Name="Image4_5" Source="Images/Grass.png" Grid.Row="4" Grid.Column="5"></Image>
+            <Image x:Name="Image5_5" Source="Images/Grass.png" Grid.Row="5" Grid.Column="5"></Image>
+            <Image x:Name="Image6_5" Source="Images/Grass.png" Grid.Row="6" Grid.Column="5"></Image>
+            <Image x:Name="Image7_5" Source="Images/Grass.png" Grid.Row="7" Grid.Column="5"></Image>
+            <Image x:Name="Image8_5" Source="Images/Grass.png" Grid.Row="8" Grid.Column="5"></Image>
+            <Image x:Name="Image9_5" Source="Images/Grass.png" Grid.Row="9" Grid.Column="5"></Image>
+            <Image x:Name="Image10_5" Source="Images/Grass.png" Grid.Row="10" Grid.Column="5"></Image>
+            <Image x:Name="Image11_5" Source="Images/Grass.png" Grid.Row="11" Grid.Column="5"></Image>
+            <Image x:Name="Image12_5" Source="Images/Grass.png" Grid.Row="12" Grid.Column="5"></Image>
+            <Image x:Name="Image13_5" Source="Images/Grass.png" Grid.Row="13" Grid.Column="5"></Image>
+            <Image x:Name="Image14_5" Source="Images/Grass.png" Grid.Row="14" Grid.Column="5"></Image>
+            <Image x:Name="Image15_5" Source="Images/Grass.png" Grid.Row="15" Grid.Column="5"></Image>
+            <Image x:Name="Image0_6" Source="Images/Grass.png" Grid.Row="0" Grid.Column="6"></Image>
+            <Image x:Name="Image1_6" Source="Images/Grass.png" Grid.Row="1" Grid.Column="6"></Image>
+            <Image x:Name="Image2_6" Source="Images/Grass.png" Grid.Row="2" Grid.Column="6"></Image>
+            <Image x:Name="Image3_6" Source="Images/Grass.png" Grid.Row="3" Grid.Column="6"></Image>
+            <Image x:Name="Image4_6" Source="Images/Grass.png" Grid.Row="4" Grid.Column="6"></Image>
+            <Image x:Name="Image5_6" Source="Images/Grass.png" Grid.Row="5" Grid.Column="6"></Image>
+            <Image x:Name="Image6_6" Source="Images/Grass.png" Grid.Row="6" Grid.Column="6"></Image>
+            <Image x:Name="Image7_6" Source="Images/Grass.png" Grid.Row="7" Grid.Column="6"></Image>
+            <Image x:Name="Image8_6" Source="Images/Grass.png" Grid.Row="8" Grid.Column="6"></Image>
+            <Image x:Name="Image9_6" Source="Images/Grass.png" Grid.Row="9" Grid.Column="6"></Image>
+            <Image x:Name="Image10_6" Source="Images/Grass.png" Grid.Row="10" Grid.Column="6"></Image>
+            <Image x:Name="Image11_6" Source="Images/Grass.png" Grid.Row="11" Grid.Column="6"></Image>
+            <Image x:Name="Image12_6" Source="Images/Grass.png" Grid.Row="12" Grid.Column="6"></Image>
+            <Image x:Name="Image13_6" Source="Images/Grass.png" Grid.Row="13" Grid.Column="6"></Image>
+            <Image x:Name="Image14_6" Source="Images/Grass.png" Grid.Row="14" Grid.Column="6"></Image>
+            <Image x:Name="Image15_6" Source="Images/Grass.png" Grid.Row="15" Grid.Column="6"></Image>
+            <Image x:Name="Image0_7" Source="Images/Grass.png" Grid.Row="0" Grid.Column="7"></Image>
+            <Image x:Name="Image1_7" Source="Images/Grass.png" Grid.Row="1" Grid.Column="7"></Image>
+            <Image x:Name="Image2_7" Source="Images/Grass.png" Grid.Row="2" Grid.Column="7"></Image>
+            <Image x:Name="Image3_7" Source="Images/Grass.png" Grid.Row="3" Grid.Column="7"></Image>
+            <Image x:Name="Image4_7" Source="Images/Grass.png" Grid.Row="4" Grid.Column="7"></Image>
+            <Image x:Name="Image5_7" Source="Images/Grass.png" Grid.Row="5" Grid.Column="7"></Image>
+            <Image x:Name="Image6_7" Source="Images/Grass.png" Grid.Row="6" Grid.Column="7"></Image>
+            <Image x:Name="Image7_7" Source="Images/Grass.png" Grid.Row="7" Grid.Column="7"></Image>
+            <Image x:Name="Image8_7" Source="Images/Grass.png" Grid.Row="8" Grid.Column="7"></Image>
+            <Image x:Name="Image9_7" Source="Images/Grass.png" Grid.Row="9" Grid.Column="7"></Image>
+            <Image x:Name="Image10_7" Source="Images/Grass.png" Grid.Row="10" Grid.Column="7"></Image>
+            <Image x:Name="Image11_7" Source="Images/Grass.png" Grid.Row="11" Grid.Column="7"></Image>
+            <Image x:Name="Image12_7" Source="Images/Grass.png" Grid.Row="12" Grid.Column="7"></Image>
+            <Image x:Name="Image13_7" Source="Images/Grass.png" Grid.Row="13" Grid.Column="7"></Image>
+            <Image x:Name="Image14_7" Source="Images/Grass.png" Grid.Row="14" Grid.Column="7"></Image>
+            <Image x:Name="Image15_7" Source="Images/Grass.png" Grid.Row="15" Grid.Column="7"></Image>
+            <Image x:Name="Image0_8" Source="Images/Grass.png" Grid.Row="0" Grid.Column="8"></Image>
+            <Image x:Name="Image1_8" Source="Images/Grass.png" Grid.Row="1" Grid.Column="8"></Image>
+            <Image x:Name="Image2_8" Source="Images/Grass.png" Grid.Row="2" Grid.Column="8"></Image>
+            <Image x:Name="Image3_8" Source="Images/Grass.png" Grid.Row="3" Grid.Column="8"></Image>
+            <Image x:Name="Image4_8" Source="Images/Grass.png" Grid.Row="4" Grid.Column="8"></Image>
+            <Image x:Name="Image5_8" Source="Images/Grass.png" Grid.Row="5" Grid.Column="8"></Image>
+            <Image x:Name="Image6_8" Source="Images/Grass.png" Grid.Row="6" Grid.Column="8"></Image>
+            <Image x:Name="Image7_8" Source="Images/Grass.png" Grid.Row="7" Grid.Column="8"></Image>
+            <Image x:Name="Image8_8" Source="Images/Grass.png" Grid.Row="8" Grid.Column="8"></Image>
+            <Image x:Name="Image9_8" Source="Images/Grass.png" Grid.Row="9" Grid.Column="8"></Image>
+            <Image x:Name="Image10_8" Source="Images/Grass.png" Grid.Row="10" Grid.Column="8"></Image>
+            <Image x:Name="Image11_8" Source="Images/Grass.png" Grid.Row="11" Grid.Column="8"></Image>
+            <Image x:Name="Image12_8" Source="Images/Grass.png" Grid.Row="12" Grid.Column="8"></Image>
+            <Image x:Name="Image13_8" Source="Images/Grass.png" Grid.Row="13" Grid.Column="8"></Image>
+            <Image x:Name="Image14_8" Source="Images/Grass.png" Grid.Row="14" Grid.Column="8"></Image>
+            <Image x:Name="Image15_8" Source="Images/Grass.png" Grid.Row="15" Grid.Column="8"></Image>
+            <Image x:Name="Image0_9" Source="Images/Grass.png" Grid.Row="0" Grid.Column="9"></Image>
+            <Image x:Name="Image1_9" Source="Images/Grass.png" Grid.Row="1" Grid.Column="9"></Image>
+            <Image x:Name="Image2_9" Source="Images/Grass.png" Grid.Row="2" Grid.Column="9"></Image>
+            <Image x:Name="Image3_9" Source="Images/Grass.png" Grid.Row="3" Grid.Column="9"></Image>
+            <Image x:Name="Image4_9" Source="Images/Grass.png" Grid.Row="4" Grid.Column="9"></Image>
+            <Image x:Name="Image5_9" Source="Images/Grass.png" Grid.Row="5" Grid.Column="9"></Image>
+            <Image x:Name="Image6_9" Source="Images/Grass.png" Grid.Row="6" Grid.Column="9"></Image>
+            <Image x:Name="Image7_9" Source="Images/Grass.png" Grid.Row="7" Grid.Column="9"></Image>
+            <Image x:Name="Image8_9" Source="Images/Grass.png" Grid.Row="8" Grid.Column="9"></Image>
+            <Image x:Name="Image9_9" Source="Images/Grass.png" Grid.Row="9" Grid.Column="9"></Image>
+            <Image x:Name="Image10_9" Source="Images/Grass.png" Grid.Row="10" Grid.Column="9"></Image>
+            <Image x:Name="Image11_9" Source="Images/Grass.png" Grid.Row="11" Grid.Column="9"></Image>
+            <Image x:Name="Image12_9" Source="Images/Grass.png" Grid.Row="12" Grid.Column="9"></Image>
+            <Image x:Name="Image13_9" Source="Images/Grass.png" Grid.Row="13" Grid.Column="9"></Image>
+            <Image x:Name="Image14_9" Source="Images/Grass.png" Grid.Row="14" Grid.Column="9"></Image>
+            <Image x:Name="Image15_9" Source="Images/Grass.png" Grid.Row="15" Grid.Column="9"></Image>
+            <Image x:Name="Image0_10" Source="Images/Grass.png" Grid.Row="0" Grid.Column="10"></Image>
+            <Image x:Name="Image1_10" Source="Images/Grass.png" Grid.Row="1" Grid.Column="10"></Image>
+            <Image x:Name="Image2_10" Source="Images/Grass.png" Grid.Row="2" Grid.Column="10"></Image>
+            <Image x:Name="Image3_10" Source="Images/Grass.png" Grid.Row="3" Grid.Column="10"></Image>
+            <Image x:Name="Image4_10" Source="Images/Grass.png" Grid.Row="4" Grid.Column="10"></Image>
+            <Image x:Name="Image5_10" Source="Images/Grass.png" Grid.Row="5" Grid.Column="10"></Image>
+            <Image x:Name="Image6_10" Source="Images/Grass.png" Grid.Row="6" Grid.Column="10"></Image>
+            <Image x:Name="Image7_10" Source="Images/Grass.png" Grid.Row="7" Grid.Column="10"></Image>
+            <Image x:Name="Image8_10" Source="Images/Grass.png" Grid.Row="8" Grid.Column="10"></Image>
+            <Image x:Name="Image9_10" Source="Images/Grass.png" Grid.Row="9" Grid.Column="10"></Image>
+            <Image x:Name="Image10_10" Source="Images/Grass.png" Grid.Row="10" Grid.Column="10"></Image>
+            <Image x:Name="Image11_10" Source="Images/Grass.png" Grid.Row="11" Grid.Column="10"></Image>
+            <Image x:Name="Image12_10" Source="Images/Grass.png" Grid.Row="12" Grid.Column="10"></Image>
+            <Image x:Name="Image13_10" Source="Images/Grass.png" Grid.Row="13" Grid.Column="10"></Image>
+            <Image x:Name="Image14_10" Source="Images/Grass.png" Grid.Row="14" Grid.Column="10"></Image>
+            <Image x:Name="Image15_10" Source="Images/Grass.png" Grid.Row="15" Grid.Column="10"></Image>
+            <Image x:Name="Image0_11" Source="Images/Grass.png" Grid.Row="0" Grid.Column="11"></Image>
+            <Image x:Name="Image1_11" Source="Images/Grass.png" Grid.Row="1" Grid.Column="11"></Image>
+            <Image x:Name="Image2_11" Source="Images/Grass.png" Grid.Row="2" Grid.Column="11"></Image>
+            <Image x:Name="Image3_11" Source="Images/Grass.png" Grid.Row="3" Grid.Column="11"></Image>
+            <Image x:Name="Image4_11" Source="Images/Grass.png" Grid.Row="4" Grid.Column="11"></Image>
+            <Image x:Name="Image5_11" Source="Images/Grass.png" Grid.Row="5" Grid.Column="11"></Image>
+            <Image x:Name="Image6_11" Source="Images/Grass.png" Grid.Row="6" Grid.Column="11"></Image>
+            <Image x:Name="Image7_11" Source="Images/Grass.png" Grid.Row="7" Grid.Column="11"></Image>
+            <Image x:Name="Image8_11" Source="Images/Grass.png" Grid.Row="8" Grid.Column="11"></Image>
+            <Image x:Name="Image9_11" Source="Images/Grass.png" Grid.Row="9" Grid.Column="11"></Image>
+            <Image x:Name="Image10_11" Source="Images/Grass.png" Grid.Row="10" Grid.Column="11"></Image>
+            <Image x:Name="Image11_11" Source="Images/Grass.png" Grid.Row="11" Grid.Column="11"></Image>
+            <Image x:Name="Image12_11" Source="Images/Grass.png" Grid.Row="12" Grid.Column="11"></Image>
+            <Image x:Name="Image13_11" Source="Images/Grass.png" Grid.Row="13" Grid.Column="11"></Image>
+            <Image x:Name="Image14_11" Source="Images/Grass.png" Grid.Row="14" Grid.Column="11"></Image>
+            <Image x:Name="Image15_11" Source="Images/Grass.png" Grid.Row="15" Grid.Column="11"></Image>
+            <Image x:Name="Image0_12" Source="Images/Grass.png" Grid.Row="0" Grid.Column="12"></Image>
+            <Image x:Name="Image1_12" Source="Images/Grass.png" Grid.Row="1" Grid.Column="12"></Image>
+            <Image x:Name="Image2_12" Source="Images/Grass.png" Grid.Row="2" Grid.Column="12"></Image>
+            <Image x:Name="Image3_12" Source="Images/Grass.png" Grid.Row="3" Grid.Column="12"></Image>
+            <Image x:Name="Image4_12" Source="Images/Grass.png" Grid.Row="4" Grid.Column="12"></Image>
+            <Image x:Name="Image5_12" Source="Images/Grass.png" Grid.Row="5" Grid.Column="12"></Image>
+            <Image x:Name="Image6_12" Source="Images/Grass.png" Grid.Row="6" Grid.Column="12"></Image>
+            <Image x:Name="Image7_12" Source="Images/Grass.png" Grid.Row="7" Grid.Column="12"></Image>
+            <Image x:Name="Image8_12" Source="Images/Grass.png" Grid.Row="8" Grid.Column="12"></Image>
+            <Image x:Name="Image9_12" Source="Images/Grass.png" Grid.Row="9" Grid.Column="12"></Image>
+            <Image x:Name="Image10_12" Source="Images/Grass.png" Grid.Row="10" Grid.Column="12"></Image>
+            <Image x:Name="Image11_12" Source="Images/Grass.png" Grid.Row="11" Grid.Column="12"></Image>
+            <Image x:Name="Image12_12" Source="Images/Grass.png" Grid.Row="12" Grid.Column="12"></Image>
+            <Image x:Name="Image13_12" Source="Images/Grass.png" Grid.Row="13" Grid.Column="12"></Image>
+            <Image x:Name="Image14_12" Source="Images/Grass.png" Grid.Row="14" Grid.Column="12"></Image>
+            <Image x:Name="Image15_12" Source="Images/Grass.png" Grid.Row="15" Grid.Column="12"></Image>
+            <Image x:Name="Image0_13" Source="Images/Grass.png" Grid.Row="0" Grid.Column="13"></Image>
+            <Image x:Name="Image1_13" Source="Images/Grass.png" Grid.Row="1" Grid.Column="13"></Image>
+            <Image x:Name="Image2_13" Source="Images/Grass.png" Grid.Row="2" Grid.Column="13"></Image>
+            <Image x:Name="Image3_13" Source="Images/Grass.png" Grid.Row="3" Grid.Column="13"></Image>
+            <Image x:Name="Image4_13" Source="Images/Grass.png" Grid.Row="4" Grid.Column="13"></Image>
+            <Image x:Name="Image5_13" Source="Images/Grass.png" Grid.Row="5" Grid.Column="13"></Image>
+            <Image x:Name="Image6_13" Source="Images/Grass.png" Grid.Row="6" Grid.Column="13"></Image>
+            <Image x:Name="Image7_13" Source="Images/Grass.png" Grid.Row="7" Grid.Column="13"></Image>
+            <Image x:Name="Image8_13" Source="Images/Grass.png" Grid.Row="8" Grid.Column="13"></Image>
+            <Image x:Name="Image9_13" Source="Images/Grass.png" Grid.Row="9" Grid.Column="13"></Image>
+            <Image x:Name="Image10_13" Source="Images/Grass.png" Grid.Row="10" Grid.Column="13"></Image>
+            <Image x:Name="Image11_13" Source="Images/Grass.png" Grid.Row="11" Grid.Column="13"></Image>
+            <Image x:Name="Image12_13" Source="Images/Grass.png" Grid.Row="12" Grid.Column="13"></Image>
+            <Image x:Name="Image13_13" Source="Images/Grass.png" Grid.Row="13" Grid.Column="13"></Image>
+            <Image x:Name="Image14_13" Source="Images/Grass.png" Grid.Row="14" Grid.Column="13"></Image>
+            <Image x:Name="Image15_13" Source="Images/Grass.png" Grid.Row="15" Grid.Column="13"></Image>
+            <Image x:Name="Image0_14" Source="Images/Grass.png" Grid.Row="0" Grid.Column="14"></Image>
+            <Image x:Name="Image1_14" Source="Images/Grass.png" Grid.Row="1" Grid.Column="14"></Image>
+            <Image x:Name="Image2_14" Source="Images/Grass.png" Grid.Row="2" Grid.Column="14"></Image>
+            <Image x:Name="Image3_14" Source="Images/Grass.png" Grid.Row="3" Grid.Column="14"></Image>
+            <Image x:Name="Image4_14" Source="Images/Grass.png" Grid.Row="4" Grid.Column="14"></Image>
+            <Image x:Name="Image5_14" Source="Images/Grass.png" Grid.Row="5" Grid.Column="14"></Image>
+            <Image x:Name="Image6_14" Source="Images/Grass.png" Grid.Row="6" Grid.Column="14"></Image>
+            <Image x:Name="Image7_14" Source="Images/Grass.png" Grid.Row="7" Grid.Column="14"></Image>
+            <Image x:Name="Image8_14" Source="Images/Grass.png" Grid.Row="8" Grid.Column="14"></Image>
+            <Image x:Name="Image9_14" Source="Images/Grass.png" Grid.Row="9" Grid.Column="14"></Image>
+            <Image x:Name="Image10_14" Source="Images/Grass.png" Grid.Row="10" Grid.Column="14"></Image>
+            <Image x:Name="Image11_14" Source="Images/Grass.png" Grid.Row="11" Grid.Column="14"></Image>
+            <Image x:Name="Image12_14" Source="Images/Grass.png" Grid.Row="12" Grid.Column="14"></Image>
+            <Image x:Name="Image13_14" Source="Images/Grass.png" Grid.Row="13" Grid.Column="14"></Image>
+            <Image x:Name="Image14_14" Source="Images/Grass.png" Grid.Row="14" Grid.Column="14"></Image>
+            <Image x:Name="Image15_14" Source="Images/Grass.png" Grid.Row="15" Grid.Column="14"></Image>
+            <Image x:Name="Image0_15" Source="Images/Grass.png" Grid.Row="0" Grid.Column="15"></Image>
+            <Image x:Name="Image1_15" Source="Images/Grass.png" Grid.Row="1" Grid.Column="15"></Image>
+            <Image x:Name="Image2_15" Source="Images/Grass.png" Grid.Row="2" Grid.Column="15"></Image>
+            <Image x:Name="Image3_15" Source="Images/Grass.png" Grid.Row="3" Grid.Column="15"></Image>
+            <Image x:Name="Image4_15" Source="Images/Grass.png" Grid.Row="4" Grid.Column="15"></Image>
+            <Image x:Name="Image5_15" Source="Images/Grass.png" Grid.Row="5" Grid.Column="15"></Image>
+            <Image x:Name="Image6_15" Source="Images/Grass.png" Grid.Row="6" Grid.Column="15"></Image>
+            <Image x:Name="Image7_15" Source="Images/Grass.png" Grid.Row="7" Grid.Column="15"></Image>
+            <Image x:Name="Image8_15" Source="Images/Grass.png" Grid.Row="8" Grid.Column="15"></Image>
+            <Image x:Name="Image9_15" Source="Images/Grass.png" Grid.Row="9" Grid.Column="15"></Image>
+            <Image x:Name="Image10_15" Source="Images/Grass.png" Grid.Row="10" Grid.Column="15"></Image>
+            <Image x:Name="Image11_15" Source="Images/Grass.png" Grid.Row="11" Grid.Column="15"></Image>
+            <Image x:Name="Image12_15" Source="Images/Grass.png" Grid.Row="12" Grid.Column="15"></Image>
+            <Image x:Name="Image13_15" Source="Images/Grass.png" Grid.Row="13" Grid.Column="15"></Image>
+            <Image x:Name="Image14_15" Source="Images/Grass.png" Grid.Row="14" Grid.Column="15"></Image>
+            <Image x:Name="Image15_15" Source="Images/Grass.png" Grid.Row="15" Grid.Column="15"></Image>
+        </Grid>
+        
+        <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="45,475,0,0" VerticalAlignment="Top" Width="75" Click="RestartButton_Click" FontWeight="Bold" Cursor="Hand" FontSize="20" Background="#FF55FF63"/>
+        <Button x:Name="MainMenuButton" Content="Main Menu" HorizontalAlignment="Left" Margin="330,475,0,0" VerticalAlignment="Top" Width="125" Click="MainMenuButton_Click" FontWeight="Bold" Cursor="Hand" FontSize="20" Background="#FF55FF63"/>
+    </Grid>
+</Window>
