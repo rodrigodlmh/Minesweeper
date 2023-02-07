@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+﻿//----------------------------------------------------------------------
+// <copyright file="MainWindow.xaml.cs" company="😹👍">
+//     Company copyright tag.
+// </copyright>
+//----------------------------------------------------------------------
 namespace VSProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
     public partial class MainWindow : Window
     {
         // Difficulty selection (0 = easy, 1 = medium, 2 = hard, 3 = impossible)
@@ -30,7 +36,7 @@ namespace VSProject
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            //Open a different window based on the difficulty selected
+            // Open a different window based on the difficulty selected
             // Right know all options open the medium difficulty window
             switch (difficultySelection)
             {
@@ -100,6 +106,7 @@ namespace VSProject
             MessageBox.Show("Developers: Rodrigo De la Mora, Damian Olivo, Donald Swearing, Sam Thorpe  \nVersion: 1.1.1 \nDate: 2/7/2023");          
         }
 
+        //button to show the amou
         private void rulesButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Minesweeper Rules: \n\n" +

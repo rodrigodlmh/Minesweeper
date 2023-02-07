@@ -1,17 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//----------------------------------------------------------------------
+// <copyright file="Minefield.cs" company="😹👍">
+//     Company copyright tag.
+// </copyright>
+//----------------------------------------------------------------------
 namespace VSProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// The class used to generate the minefield 
+    /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
     class Minefield
     {
         // Variable that holds the amount of rows and columns the grid is going to have on the medium difficulty
         public int Max = 16;
+
         // Variable that holds the maximum amount of mines for the medium difficulty
         public int MineCount = 40;
+
+        // variable that holds the amount of safe squares to click on on medium difficulty
+        public int safeSquares = 216;
+
+        // variable that shows the amount of mines left in the minefield 
+        public int minesLeft = 40;
 
         // List used to store coordinates where mines cannot be placed (the player's first click or places where there's already a mine)
         public List<Coordinate> ForbiddenCoordinates;
@@ -39,8 +55,10 @@ namespace VSProject
                 {
                     // Create objects of square on the 2d array
                     squares[i, j] = new Square();
+
                     // Set the location of the square to a new coordinate object
                     squares[i, j].Location = new Coordinate();
+                    
                     // Set the x and y components of the coordinate object
                     squares[i, j].Location.x = i;
                     squares[i, j].Location.y = j;
@@ -60,11 +78,14 @@ namespace VSProject
             {
                 // Create a new coordinate object
                 Coordinate coordinate = new Coordinate();
+
                 // Randomly generate the x and y components of that coordinate
                 coordinate.x = GenerateRandomNumber();
                 coordinate.y = GenerateRandomNumber();
+
                 // Bool that stores whether the coordinate generated is forbidden or not
                 bool Forbidden = false;
+
                 // Loop through the forbiddenCoordinates to check if the randomly generated coordinate is valid
                 foreach (Coordinate coord in ForbiddenCoordinates)
                 {
@@ -72,6 +93,7 @@ namespace VSProject
                     {
                         // Set Forbidden to true
                         Forbidden = true;
+                        
                         // Stop checking 
                         break;
                     }
@@ -81,10 +103,13 @@ namespace VSProject
                 {
                     // Add the coordinates generated to the list of coordinates of mines
                     mineCoords.Add(coordinate);
+
                     // Add the coordinates generated to the forbidden coordinates so that we dont spawn another mine there
                     ForbiddenCoordinates.Add(coordinate);
+                    
                     // Set the state of the square of thoso coordinates to IsAMine
                     squares[coordinate.x, coordinate.y].state = State.IsAMine;
+                    
                     // Since we successfully generated a mine, we increment i.
                     i++;
                 }
@@ -149,12 +174,14 @@ namespace VSProject
         {
             // create list
             ForbiddenCoordinates = new List<Coordinate>();
+            
             //get coordinates of first click
             int x = firstClick.x;
             int y = firstClick.y;
+            
             // get all surrounding squares of that coordinate and add them to the list
             ForbiddenCoordinates.Add(new Coordinate(x + 1, y - 1)); // top left
-            ForbiddenCoordinates.Add(new Coordinate(x + 1, y)); // left
+            ForbiddenCoordinates.Add(new Coordinate(x + 1, y)); // right
             ForbiddenCoordinates.Add(new Coordinate(x + 1, y + 1)); // bottom right
             ForbiddenCoordinates.Add(new Coordinate(x, y - 1)); // top
             ForbiddenCoordinates.Add(new Coordinate(x, y + 1)); // bottom
@@ -162,6 +189,22 @@ namespace VSProject
             ForbiddenCoordinates.Add(new Coordinate(x - 1, y)); // left
             ForbiddenCoordinates.Add(new Coordinate(x - 1, y + 1)); //bottom left
             ForbiddenCoordinates.Add(firstClick);
+        }
+
+        public List<Coordinate> GetSurroundingCoordinates(Coordinate coordinate)
+        {
+            int x = coordinate.x;
+            int y = coordinate.y;
+            List<Coordinate> coordinates = new List<Coordinate>();
+            coordinates.Add(new Coordinate(x + 1, y - 1)); // top left
+            coordinates.Add(new Coordinate(x + 1, y)); // right
+            coordinates.Add(new Coordinate(x + 1, y + 1)); // bottom right
+            coordinates.Add(new Coordinate(x, y - 1)); // top
+            coordinates.Add(new Coordinate(x, y + 1)); // bottom
+            coordinates.Add(new Coordinate(x - 1, y - 1)); // top left
+            coordinates.Add(new Coordinate(x - 1, y)); // left
+            coordinates.Add(new Coordinate(x - 1, y + 1)); //bottom left
+            return coordinates;
         }
     }
 }

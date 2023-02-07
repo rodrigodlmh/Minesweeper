@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\
 VSProject
 none
 false
 DEBUG;TRACE
-C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\App.xaml
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\App.xaml
 2-114757256
 
 11-1583910148
 13-1505183044
 GameWindow.xaml;MainWindow.xaml;
 
-False
+True
 

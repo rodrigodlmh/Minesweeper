@@ -309,5 +309,9 @@
         
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="45,475,0,0" VerticalAlignment="Top" Width="75" Click="RestartButton_Click" FontWeight="Bold" Cursor="Hand" FontSize="20" Background="#FF55FF63"/>
         <Button x:Name="MainMenuButton" Content="Main Menu" HorizontalAlignment="Left" Margin="330,475,0,0" VerticalAlignment="Top" Width="125" Click="MainMenuButton_Click" FontWeight="Bold" Cursor="Hand" FontSize="20" Background="#FF55FF63"/>
+        <TextBlock x:Name="TimeTextBlock" HorizontalAlignment="Left" Margin="45,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="MinesLabel" Content="Mines Left:" HorizontalAlignment="Left" Margin="228,15,0,0" VerticalAlignment="Top" Cursor="" RenderTransformOrigin="0.653,0.346"/>
+        <TextBlock x:Name="MinesTextBlock" HorizontalAlignment="Left" Margin="295,20,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" RenderTransformOrigin="0.521,1.232"/>
+        <CheckBox x:Name="ShowMinesCB" Content="Show Mines" HorizontalAlignment="Left" Margin="350,21,0,0" VerticalAlignment="Top" Checked="ShowMinesCB_Checked"/>
     </Grid>
 </Window>
