@@ -1,0 +1,11 @@
+﻿<Window x:Class="GradebookScenario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Object-Oriented Programming 1: Gradebook" Height="330" Width="440">
+    <Grid>
+        <Button x:Name="newGradebookButton" Content="New gradebook" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="newGradebookButton_Click"/>
+        <Button x:Name="calculateCurrentStudentGpaButton" Content="Calculate current student's GPA" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="calculateCurrentStudentGpaButton_Click"/>
+        <Button x:Name="findOop1LetterGradeButton" Content="Find OOP 1 letter grade" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="findOop1LetterGradeButton_Click"/>
+        <Button x:Name="add1ToOop1PercentageGrade" Content="Add 1 to OOP 1 percentage grade" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="add1ToOop1PercentageGradeButton_Click"/>
+    </Grid>
+</Window>

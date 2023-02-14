@@ -11,8 +11,10 @@ namespace VSProject
     using System.Text;
     using System.Threading.Tasks;
 
-    // Reveals how many mines there are around a square or if it is a mine
-    enum State
+    /// <summary>
+    /// Reveals how many mines there are around a square or if it is a mine
+    /// </summary>
+    public enum State
     {
         /// <summary>
         /// 0 represents no mines
@@ -65,8 +67,10 @@ namespace VSProject
         IsAMine = 9
     }
 
-    // Reveals if the square has a flag or a question mark
-    enum State2
+    /// <summary>
+    /// Reveals if the square has a flag or a question mark
+    /// </summary>
+    public enum State2
     {
         /// <summary>
         /// 0 represents uncovered block
@@ -88,16 +92,26 @@ namespace VSProject
     /// The class used to represent a square
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
-    class Square
+    public class Square
     {
-        // state variables
-        public State state = State.NoMines;
-        public State2 state2 = State2.Blank;
+        /// <summary>
+        /// state variable
+        /// </summary>
+        public State State = State.NoMines;
 
-        // Has the player already left-clicked (revealed) the square
-        public bool revlealed = false;
-        
-        // Location of square
+        /// <summary>
+        /// state variable
+        /// </summary>
+        public State2 State2 = State2.Blank;
+
+        /// <summary>
+        /// Has the player already left-clicked (revealed) the square
+        /// </summary>
+        public bool Revlealed = false;
+
+        /// <summary>
+        /// Location of square
+        /// </summary>
         public Coordinate Location;
     }
 }

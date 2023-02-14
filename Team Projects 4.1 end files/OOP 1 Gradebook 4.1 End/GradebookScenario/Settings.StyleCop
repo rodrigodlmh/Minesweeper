@@ -1,0 +1,8 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>gradebook</Value>
+      <Value>gradebook's</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>

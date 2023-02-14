@@ -26,336 +26,86 @@ namespace VSProject
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
     public partial class GameWindow : Window
     {
-        System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-        public int tenthsOfSecondsElapsed;
-        Game game;
+        /// <summary>
+        /// sets a timer up
+        /// </summary>
+        public System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer();
+
+        /// <summary>
+        /// for use in for loop
+        /// </summary>
+        public int TenthsOfSecondsElapsed;
+
+        /// <summary>
+        /// instance of the game 
+        /// </summary>
+        public Game Gamee;
         
-            /// <summary>
-            /// initialize the game screen and the timer
-            /// </summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameWindow"/> class.
+        /// </summary>
         public GameWindow()
         {
             this.InitializeComponent();
-            this.timer.Interval = TimeSpan.FromSeconds(1);
-            this.timer.Tick += this.Timer_Tick;
-            this.game = new Game();
-            this.game.FirstClick = false;
-            this.game.minefield = new Minefield();
+            this.Timer.Interval = TimeSpan.FromSeconds(1);
+            this.Timer.Tick += this.Timer_Tick;
+            this.Gamee = new Game();
+            this.Gamee.FirstClick = false;
+            this.Gamee.Minefield = new Minefield();
         }
 
         /// <summary>
-        /// makes the timer work by increasing the time by 1 second every second
+        /// searches mines on board
         /// </summary>
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            this.tenthsOfSecondsElapsed++;
-            TimeTextBlock.Text = (this.tenthsOfSecondsElapsed / 1f).ToString("0s");
-        }
-
-        /// <summary>
-        /// When the user first clicks on the minefield it will generate the mines and numbers
-        /// </summary>
-        private void ClickButton_Click(object sender, RoutedEventArgs e)
-        {
-            // If it is the first click the mine field is made with the parameters
-            // to make sure to what ever the user clicked on isn't a bomb
-            Coordinate coordinate = this.GetMouseClickCoordinates(); // Get coordinates of the first click
-            if (!this.game.FirstClick)
-            {
-                // The player already made his first click
-                this.game.FirstClick = true;
-
-                // Set forbidden squares (where the player clicked)
-                this.game.minefield.SetForbiddenCoordinates(coordinate);
-                this.game.minefield.CreateSquares();
-                this.game.minefield.GenerateMines();
-                this.game.minefield.SetStateOfSquares();
-                this.timer.Start();
-                this.tenthsOfSecondsElapsed = 0;
-            }
-
-            // If the user has a flag on the square the user can't "uncover" what benith it
-            State2 state2 = this.game.minefield.squares[coordinate.x, coordinate.y].state2;
-            if (state2 == State2.Flag)
-            {
-                return;
-            }
-
-            if (this.game.minefield.squares[coordinate.x, coordinate.y].revlealed == true)
-            {
-                return;
-            }
-
-            State state = this.game.minefield.squares[coordinate.x, coordinate.y].state;
-
-            // Shows the image corilating to the board on the square the user left clicked
-            this.ChangeImageOnState(state, coordinate);
-            if (this.game.minefield.squares[coordinate.x, coordinate.y].state == State.NoMines)
-            {
-                this.SearchMines(coordinate);
-            }
-        }
-
-        /// <summary>
-        /// changes the image on the square based on its state
-        /// </summary>
-        private void ChangeImageOnState(State state, Coordinate coordinate)
-        {
-            string imageName = this.GetImageName(coordinate);
-            switch (state)
-            {
-                case State.NoMines:
-                    this.ChangeImage(imageName, "Images/Blank.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.OneMine:
-                    this.ChangeImage(imageName, "Images/1.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.TwoMines:
-                    this.ChangeImage(imageName, "Images/2.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.ThreeMines:
-                    this.ChangeImage(imageName, "Images/3.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.FourMines:
-                    this.ChangeImage(imageName, "Images/4.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.FiveMines:
-                    this.ChangeImage(imageName, "Images/5.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.SixMines:
-                    this.ChangeImage(imageName, "Images/6.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.SevenMines:
-                    this.ChangeImage(imageName, "Images/7.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.EightMines:
-                    this.ChangeImage(imageName, "Images/8.jpg");
-                    this.AfterClickCheck(coordinate);
-                    break;
-                case State.IsAMine:
-                    this.ChangeImage(imageName, "Images/Bomb.jpg");
-                    this.AfterClickCheck(coordinate);
-                    this.ShowMines();
-                    this.timer.Stop();
-                    TimeTextBlock.Text = TimeTextBlock.Text + " 😿";
-
-                    // Player loses game
-                    MessageBoxResult result = MessageBox.Show("Game over?", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        this.Quit();
-                    }
-                    else
-                    {
-                        this.Restart();
-                    }
-
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// When the user right clicks the minefield
-        /// </summary>
-        private void ClickButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!this.game.FirstClick)
-            {
-                return;
-            }
-
-            Coordinate coordinate = this.GetMouseClickCoordinates();
-            State2 state2 = this.game.minefield.squares[coordinate.x, coordinate.y].state2;
-            if (this.game.minefield.squares[coordinate.x, coordinate.y].revlealed)
-            {
-                return;
-            }
-
-            string imageName = "Image" + coordinate.y + "_" + coordinate.x;
-
-            // gets what sqaure to show either a flag, question mark or back to blank
-            switch (state2)
-            {
-                case State2.Blank:
-                    this.ChangeImage(imageName, "Images/Grass_Question.png");
-                    this.game.minefield.squares[coordinate.x, coordinate.y].state2 = State2.Question;
-                    break;
-                case State2.Question:
-                    this.ChangeImage(imageName, "Images/Grass_Flag.png");
-                    this.game.minefield.squares[coordinate.x, coordinate.y].state2 = State2.Flag;
-                    if (this.game.minefield.squares[coordinate.x, coordinate.y].state == State.IsAMine)
-                    {
-                        this.game.minefield.minesLeft--;
-                        MinesTextBlock.Text = this.game.minefield.minesLeft.ToString();
-                    }
-                    break;
-                case State2.Flag:
-                    this.ChangeImage(imageName, "Images/Grass.png");
-                    this.game.minefield.squares[coordinate.x, coordinate.y].state2 = State2.Blank;
-                    if (this.game.minefield.squares[coordinate.x, coordinate.y].state == State.IsAMine)
-                    {
-                        this.game.minefield.minesLeft++;
-                        MinesTextBlock.Text = this.game.minefield.minesLeft.ToString();
-                    }
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// update the image on the screen
-        /// </summary>
-        private void ChangeImage(string imageName, string source)
-        {
-            BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            Image targetImage = this.GetImage(imageName);
-            bi3.UriSource = new Uri(source, UriKind.Relative);
-            bi3.EndInit();
-            targetImage.Source = bi3;
-        }
-
-        // Gets the coordniates of where evere the user clicked
-        private Coordinate GetMouseClickCoordinates()
-        {
-            Point mousePosition = Mouse.GetPosition(MinefieldGrid);
-            double doubleX = Math.Floor(mousePosition.X);
-            double doubleY = Math.Floor(mousePosition.Y);
-            int x = Convert.ToInt32(doubleX);
-            int y = Convert.ToInt32(doubleY);
-            Coordinate coordinate = new Coordinate(x, y);
-
-            // Size of each grid square
-            coordinate.x = x / 25;
-            coordinate.y = y / 25; 
-            return coordinate;
-        }
-
-        private void ShowMines()
-        {
-            foreach (Coordinate coord in this.game.minefield.mineCoords)
-            {
-                int x = coord.x;
-                int y = coord.y;
-                if (this.game.minefield.squares[x, y].state == State.IsAMine)
-                {
-                    this.ChangeImage(this.GetImageName(coord), "Images/Bomb.jpg");
-                }
-            }
-        }
-
-        private string GetImageName(Coordinate coordinate)
-        {
-            string imageName = "Image" + coordinate.y + "_" + coordinate.x;
-            return imageName;
-        }
-
-        private void AfterClickCheck(Coordinate coord)
-        {
-            if (this.game.minefield.squares[coord.x, coord.y].revlealed == false)
-            {
-                this.game.minefield.safeSquares--;
-                if (this.game.minefield.safeSquares == 0)
-                {
-                    MessageBox.Show("you won");
-                }
-            }
-            this.game.minefield.squares[coord.x, coord.y].revlealed = true;
-        }
- 
-        /// <summary>
-        /// Shows a new game window and closes the previous one
-        /// </summary>
-        private void RestartButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Restart();
-        }
-
-        /// <summary>
-        /// Closes the game window and opens the main window
-        /// </summary>
-        private void MainMenuButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Quit();
-        }
-
-        /// <summary>
-        /// Creates a new window, opens it and closes the current
-        /// </summary>
-        private void Restart()
-        {
-            GameWindow restartWindow = new GameWindow();
-            restartWindow.Show();
-            this.Close();
-        }
-
-        /// <summary>
-        /// Creates a new main menu window, opens it and closes the current
-        /// </summary>
-        private void Quit()
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
+        /// <param name="coordinate"> a coordinate</param>
         public void SearchMines(Coordinate coordinate)
         {
-            
-            for (int xNum = coordinate.x - 1; xNum <= coordinate.x + 1; xNum++)
+            for (int xNum = coordinate.X - 1; xNum <= coordinate.X + 1; xNum++)
             {
-                for (int yNum = coordinate.y - 1; yNum <= coordinate.y + 1; yNum++)
+                for (int yNum = coordinate.Y - 1; yNum <= coordinate.Y + 1; yNum++)
                 {
-                    // if outside minefield area BORDERS!! OR ALREADY REVEALED
-                    if (this.game.minefield.IsCoordinateValid(new Coordinate(xNum, yNum)))
+                    // if outside Minefield area BORDERS!! OR ALREADY REVEALED
+                    if (this.Gamee.Minefield.IsCoordinateValid(new Coordinate(xNum, yNum)))
                     {
-                        if (this.game.minefield.squares[xNum, yNum].revlealed != true)
+                        if (this.Gamee.Minefield.Squares[xNum, yNum].Revlealed != true)
                         {
                             // if blank or question mark CHECK IF NOT FLAGGED 
-                            if (this.game.minefield.squares[xNum, yNum].state2 == State2.Question || this.game.minefield.squares[xNum, yNum].state2 == State2.Blank || this.game.minefield.squares[xNum, yNum].state2 == State2.Flag)
+                            if (this.Gamee.Minefield.Squares[xNum, yNum].State2 == State2.Question || this.Gamee.Minefield.Squares[xNum, yNum].State2 == State2.Blank || this.Gamee.Minefield.Squares[xNum, yNum].State2 == State2.Flag)
                             {
                                 // If the value is a blank
-                                if (this.game.minefield.squares[xNum, yNum].state == State.NoMines)
+                                if (this.Gamee.Minefield.Squares[xNum, yNum].State == State.NoMines)
                                 {
                                     this.ChangeImage(this.GetImageName(new Coordinate(xNum, yNum)), "Images/Blank.jpg");
-                                    this.game.minefield.squares[xNum, yNum].revlealed = true;
-                                    List<Coordinate> coordinates = this.game.minefield.GetSurroundingCoordinates(new Coordinate(xNum, yNum));
+                                    this.Gamee.Minefield.Squares[xNum, yNum].Revlealed = true;
+                                    List<Coordinate> coordinates = this.Gamee.Minefield.GetSurroundingCoordinates(new Coordinate(xNum, yNum));
 
                                     for (int i = 0; i < 8; i++)
                                     {
-                                        // Check if outside the minefield
-                                        if (this.game.minefield.IsCoordinateValid(coordinates[i]))
+                                        // Check if outside the Minefield
+                                        if (this.Gamee.Minefield.IsCoordinateValid(coordinates[i]))
                                         {
-                                            State state = this.game.minefield.squares[coordinates[i].x, coordinates[i].y].state;
+                                            State state = this.Gamee.Minefield.Squares[coordinates[i].X, coordinates[i].Y].State;
 
                                             // not blank because we will check that blank 
                                             if (state != State.IsAMine)
                                             {
                                                 this.ChangeImageOnState(state, coordinates[i]);
-                                                this.game.minefield.squares[coordinates[i].x, coordinates[i].y].revlealed = true;
+                                                this.Gamee.Minefield.Squares[coordinates[i].X, coordinates[i].Y].Revlealed = true;
                                                 if (state == State.NoMines)
                                                 {
-                                                    SearchMines(coordinates[i]);
+                                                    this.SearchMines(coordinates[i]);
                                                 }
                                             }
                                         }
                                     }
                                 }
-
-                                // FIND WHAT NUMBER IT IS
-                                else if (this.game.minefield.IsCoordinateValid(coordinate))
+                                else if (this.Gamee.Minefield.IsCoordinateValid(coordinate))
                                 {
-                                    State state = this.game.minefield.squares[xNum, yNum].state;
+                                    State state = this.Gamee.Minefield.Squares[xNum, yNum].State;
                                     if (state != State.NoMines && state != State.IsAMine)
                                     {
                                         this.ChangeImageOnState(state, new Coordinate(xNum, yNum));
-                                        this.game.minefield.squares[xNum, yNum].revlealed = true;
+                                        this.Gamee.Minefield.Squares[xNum, yNum].Revlealed = true;
                                     }
                                 }
                             }
@@ -365,17 +115,12 @@ namespace VSProject
             }
         }
 
-        private void ShowMinesCB_Checked(object sender, RoutedEventArgs e)
-        {
-            if (this.game.FirstClick)
-            {
-                this.ShowMines();
-                ShowMinesCB.IsEnabled = false;
-            }
-        }
-
-        // Returns back a new image of the square of what the user did 
-        Image GetImage(string imageName)
+        /// <summary>
+        /// Returns back a new image of the square of what the user did 
+        /// </summary>
+        /// <returns>image class</returns>
+        /// <param name="imageName"> the image name</param>
+        public Image GetImage(string imageName)
         {
             // 256 if else
             if (imageName == "Image0_0")
@@ -1402,7 +1147,320 @@ namespace VSProject
             {
                 return this.Image15_15;
             }
+
             return this.Image0_0;
+        }
+
+        /// <summary>
+        /// makes the timer work by increasing the time by 1 second every second
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.TenthsOfSecondsElapsed++;
+            TimeTextBlock.Text = (this.TenthsOfSecondsElapsed / 1f).ToString("0s");
+        }
+
+        /// <summary>
+        /// When the user first clicks on the Minefield it will generate the mines and numbers
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void ClickButton_Click(object sender, RoutedEventArgs e)
+        {
+            // If it is the first click the mine field is made with the parameters
+            // to make sure to what ever the user clicked on isn't a bomb
+            Coordinate coordinate = this.GetMouseClickCoordinates(); // Get coordinates of the first click
+            if (!this.Gamee.FirstClick)
+            {
+                // The player already made his first click
+                this.Gamee.FirstClick = true;
+
+                // Set forbidden Squares (where the player clicked)
+                this.Gamee.Minefield.SetForbiddenCoordinates(coordinate);
+                this.Gamee.Minefield.CreateSquares();
+                this.Gamee.Minefield.GenerateMines();
+                this.Gamee.Minefield.SetStateOfSquares();
+                this.Timer.Start();
+                this.TenthsOfSecondsElapsed = 0;
+            }
+
+            // If the user has a flag on the square the user can't "uncover" what benith it
+            State2 state2 = this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State2;
+            if (state2 == State2.Flag)
+            {
+                return;
+            }
+
+            if (this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].Revlealed == true)
+            {
+                return;
+            }
+
+            State state = this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State;
+
+            // Shows the image corilating to the board on the square the user left clicked
+            this.ChangeImageOnState(state, coordinate);
+            if (this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State == State.NoMines)
+            {
+                this.SearchMines(coordinate);
+            }
+        }
+
+        /// <summary>
+        /// changes the image on the square based on its state
+        /// </summary>
+        /// <param name="state"> a state</param>
+        /// <param name="coordinate"> a coordinate</param>
+        private void ChangeImageOnState(State state, Coordinate coordinate)
+        {
+            string imageName = this.GetImageName(coordinate);
+            switch (state)
+            {
+                case State.NoMines:
+                    this.ChangeImage(imageName, "Images/Blank.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.OneMine:
+                    this.ChangeImage(imageName, "Images/1.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.TwoMines:
+                    this.ChangeImage(imageName, "Images/2.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.ThreeMines:
+                    this.ChangeImage(imageName, "Images/3.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.FourMines:
+                    this.ChangeImage(imageName, "Images/4.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.FiveMines:
+                    this.ChangeImage(imageName, "Images/5.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.SixMines:
+                    this.ChangeImage(imageName, "Images/6.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.SevenMines:
+                    this.ChangeImage(imageName, "Images/7.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.EightMines:
+                    this.ChangeImage(imageName, "Images/8.jpg");
+                    this.AfterClickCheck(coordinate);
+                    break;
+                case State.IsAMine:
+                    this.ChangeImage(imageName, "Images/Bomb.jpg");
+                    this.AfterClickCheck(coordinate);
+                    this.ShowMines();
+                    this.Timer.Stop();
+                    TimeTextBlock.Text = TimeTextBlock.Text + " 😿";
+
+                    // Player loses Gamee
+                    MessageBoxResult result = MessageBox.Show("Game over?", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        this.Quit();
+                    }
+                    else
+                    {
+                        this.Restart();
+                    }
+
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// When the user right clicks the Minefield
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void ClickButton_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!this.Gamee.FirstClick)
+            {
+                return;
+            }
+
+            Coordinate coordinate = this.GetMouseClickCoordinates();
+            State2 state2 = this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State2;
+            if (this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].Revlealed)
+            {
+                return;
+            }
+
+            string imageName = "Image" + coordinate.Y + "_" + coordinate.X;
+
+            // gets what sqaure to show either a flag, question mark or back to blank
+            switch (state2)
+            {
+                case State2.Blank:
+                    this.ChangeImage(imageName, "Images/Grass_Question.png");
+                    this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State2 = State2.Question;
+                    break;
+                case State2.Question:
+                    this.ChangeImage(imageName, "Images/Grass_Flag.png");
+                    this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State2 = State2.Flag;
+                    if (this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State == State.IsAMine)
+                    {
+                        this.Gamee.Minefield.MinesLeft--;
+                        MinesTextBlock.Text = this.Gamee.Minefield.MinesLeft.ToString();
+                    }
+
+                    break;
+                case State2.Flag:
+                    this.ChangeImage(imageName, "Images/Grass.png");
+                    this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State2 = State2.Blank;
+                    if (this.Gamee.Minefield.Squares[coordinate.X, coordinate.Y].State == State.IsAMine)
+                    {
+                        this.Gamee.Minefield.MinesLeft++;
+                        MinesTextBlock.Text = this.Gamee.Minefield.MinesLeft.ToString();
+                    }
+
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// update the image on the screen
+        /// </summary>
+        /// <param name="imageName"> name of the image</param>
+        /// <param name="source"> source of the image</param>
+        private void ChangeImage(string imageName, string source)
+        {
+            BitmapImage bi3 = new BitmapImage();
+            bi3.BeginInit();
+            Image targetImage = this.GetImage(imageName);
+            bi3.UriSource = new Uri(source, UriKind.Relative);
+            bi3.EndInit();
+            targetImage.Source = bi3;
+        }
+
+        /// <summary>
+        /// Gets the coordinates of where ever the user clicked
+        /// </summary>
+        /// <returns>coordinates of mouse click</returns>
+        private Coordinate GetMouseClickCoordinates()
+        {
+            Point mousePosition = Mouse.GetPosition(MinefieldGrid);
+            double doubleX = Math.Floor(mousePosition.X);
+            double doubleY = Math.Floor(mousePosition.Y);
+            int x = Convert.ToInt32(doubleX);
+            int y = Convert.ToInt32(doubleY);
+            Coordinate coordinate = new Coordinate(x, y);
+
+            // Size of each grid square
+            coordinate.X = x / 25;
+
+            // Size of each grid square
+            coordinate.Y = y / 25;
+
+            return coordinate;
+        }
+
+        /// <summary>
+        /// shows mines on board
+        /// </summary>
+        private void ShowMines()
+        {
+            foreach (Coordinate coord in this.Gamee.Minefield.MineCoords)
+            {
+                int x = coord.X;
+                int y = coord.Y;
+                if (this.Gamee.Minefield.Squares[x, y].State == State.IsAMine)
+                {
+                    this.ChangeImage(this.GetImageName(coord), "Images/Bomb.jpg");
+                }
+            }
+        }
+
+        /// <summary>
+        /// gets the name of the block on the board
+        /// </summary>
+        /// <param name="coordinate"> a coordinate</param>
+        /// <returns> a string of image name</returns>
+        private string GetImageName(Coordinate coordinate)
+        {
+            string imageName = "Image" + coordinate.Y + "_" + coordinate.X;
+            return imageName;
+        }
+
+        /// <summary>
+        /// checks to see if game has been won
+        /// </summary>
+        /// <param name="coord"> a coordinate</param>
+        private void AfterClickCheck(Coordinate coord)
+        {
+            if (this.Gamee.Minefield.Squares[coord.X, coord.Y].Revlealed == false)
+            {
+                this.Gamee.Minefield.SafeSquares--;
+                if (this.Gamee.Minefield.SafeSquares == 0)
+                {
+                    MessageBox.Show("you won");
+                }
+            }
+
+            this.Gamee.Minefield.Squares[coord.X, coord.Y].Revlealed = true;
+        }
+
+        /// <summary>
+        /// Shows a new game window and closes the previous one
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void RestartButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Restart();
+        }
+
+        /// <summary>
+        /// Closes the game window and opens the main window
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void MainMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Quit();
+        }
+
+        /// <summary>
+        /// Creates a new window, opens it and closes the current
+        /// </summary>
+        private void Restart()
+        {
+            GameWindow restartWindow = new GameWindow();
+            restartWindow.Show();
+            this.Close();
+        }
+
+        /// <summary>
+        /// Creates a new main menu window, opens it and closes the current
+        /// </summary>
+        private void Quit()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        /// <summary>
+        /// disables checkbox if user clicks it 
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void ShowMinesCB_Checked(object sender, RoutedEventArgs e)
+        {
+            if (this.Gamee.FirstClick)
+            {
+                this.ShowMines();
+                ShowMinesCB.IsEnabled = false;
+            }
         }
     }
 }

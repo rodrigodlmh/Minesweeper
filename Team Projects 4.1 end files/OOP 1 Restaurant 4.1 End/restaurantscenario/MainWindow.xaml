@@ -1,0 +1,11 @@
+﻿<Window x:Class="RestaurantScenario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Object-Oriented Programming 1: Restaurant" Height="330" Width="440">
+    <Grid>
+        <Button x:Name="newRestaurantButton" Content="New restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="newRestaurantButton_Click"/>
+        <Button x:Name="calculateTicketTotalDueButton" Content="Calculate ticket total due" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="calculateTicketTotalDueButton_Click"/>
+        <Button x:Name="giveHeidi1000RaiseButton" Content="Give Heidi $1,000 raise" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="giveHeidi1000RaiseButton_Click"/>
+        <Button x:Name="heidiSeatPatronButton" Content="Heidi, seat patron" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="200" Height="23" Click="heidiSeatPatronButton_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\bin\Debug\TheaterScenario.exe.config
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\bin\Debug\TheaterScenario.exe
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\bin\Debug\TheaterScenario.pdb
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\MainWindow.baml
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\MainWindow.g.cs
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\App.g.cs
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario_MarkupCompile.cache
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario.g.resources
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario.Properties.Resources.resources
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario.csproj.GenerateResource.Cache
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario.exe
+C:\Users\gruetzmacher\Dropbox\Courses\10-152-311 Object-Oriented Programming 1\Curriculum\Assignments\Theater\Test 1 (3.1)\OOP 1 Theater Test 1 - LastName\TheaterScenario\obj\Debug\TheaterScenario.pdb
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\bin\Debug\TheaterScenario.exe.config
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\bin\Debug\TheaterScenario.exe
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\bin\Debug\TheaterScenario.pdb
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.csproj.AssemblyReference.cache
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\MainWindow.baml
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\MainWindow.g.cs
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\App.g.cs
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario_MarkupCompile.cache
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.g.resources
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.Properties.Resources.resources
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.csproj.GenerateResource.cache
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.csproj.CoreCompileInputs.cache
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.exe
+C:\Users\olivo\OneDrive\c#\week 4\OOP 1 Theater Test 1 - Olivo\TheaterScenario\obj\Debug\TheaterScenario.pdb

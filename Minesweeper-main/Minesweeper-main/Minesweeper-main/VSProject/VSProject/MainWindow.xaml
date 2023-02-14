@@ -17,8 +17,8 @@
             <Button Content="Hard 😵" Name="hardButton"/>
             <Button Content="Impossible 👺" Name="impossibleButton"/>
         </ComboBox>
-        <Button Content="Exit" Name="exitButton" HorizontalAlignment="Left" Margin="175,264,0,0" VerticalAlignment="Top" Width="75" Click="exitButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
-        <Button Content="About" Name="aboutButton" HorizontalAlignment="Left" Margin="175,238,0,0" VerticalAlignment="Top" Width="75" Click="aboutButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
-        <Button Content="Rules" Name="rulesButton" HorizontalAlignment="Left" Margin="175,290,0,0" VerticalAlignment="Top" Width="75" Click="rulesButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
+        <Button Content="Exit" x:Name="ExitButton" HorizontalAlignment="Left" Margin="175,264,0,0" VerticalAlignment="Top" Width="75" Click="ExitButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
+        <Button Content="About" x:Name="AboutButton" HorizontalAlignment="Left" Margin="175,238,0,0" VerticalAlignment="Top" Width="75" Click="AboutButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
+        <Button Content="Rules" Name="rulesButton" HorizontalAlignment="Left" Margin="175,290,0,0" VerticalAlignment="Top" Width="75" Click="RulesButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold"/>
     </Grid>
 </Window>

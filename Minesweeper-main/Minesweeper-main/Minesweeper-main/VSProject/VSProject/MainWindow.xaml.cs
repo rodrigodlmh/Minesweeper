@@ -26,19 +26,29 @@ namespace VSProject
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
     public partial class MainWindow : Window
     {
-        // Difficulty selection (0 = easy, 1 = medium, 2 = hard, 3 = impossible)
-        int difficultySelection = 0;
+        /// <summary>
+        /// // Difficulty selection (0 = easy, 1 = medium, 2 = hard, 3 = impossible)
+        /// </summary>
+        public int DifficultySelection = 0;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// click on start button
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             // Open a different window based on the difficulty selected
             // Right know all options open the medium difficulty window
-            switch (this.difficultySelection)
+            switch (this.DifficultySelection)
             {
                 case 0:
                     // Open easy window
@@ -72,42 +82,59 @@ namespace VSProject
             }
         }
 
+        /// <summary>
+        /// select game difficulty
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
         private void Difficulty_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Set selection variable based on what the user chose in the menu
             string selection = Difficulty.SelectedItem.ToString();
             if (selection == "System.Windows.Controls.Button: Easy")
             {
-                this.difficultySelection = 0;
+                this.DifficultySelection = 0;
             }
             else if (selection == "System.Windows.Controls.Button: Medium")
             {
-                this.difficultySelection = 1;
+                this.DifficultySelection = 1;
             }
             else if (selection == "System.Windows.Controls.Button: Hard")
             {
-                this.difficultySelection = 2;
+                this.DifficultySelection = 2;
             }
             else
             {
-                this.difficultySelection = 3;
+                this.DifficultySelection = 3;
             }
         }
 
-        // Exit Button
-        private void exitButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Exit Button
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        // About the Developers
-        private void aboutButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// About the Developers
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Developers: Rodrigo De la Mora, Damian Olivo, Donald Swearing, Sam Thorpe  \nVersion: 1.1.1 \nDate: 2/7/2023");          
         }
 
-        ///button to show the amou
-        private void rulesButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// button to show the amount
+        /// </summary>
+        /// <param name="sender"> a sender</param>
+        /// <param name="e"> a letter</param>
+        private void RulesButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Minesweeper Rules: \n\n" +
                 "1. The goal is to uncover all cells that do not contain mines. \n" +

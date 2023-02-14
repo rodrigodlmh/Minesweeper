@@ -15,13 +15,17 @@ namespace VSProject
     /// The class used to represent the game
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
-    class Game
+    public class Game
     {
-        // true if the player already clicked for the first time
+        /// <summary>
+        /// true if the player already clicked for the first time
+        /// </summary>
         public bool FirstClick;
 
-        // minefield object
-        public Minefield minefield;
+        /// <summary>
+        /// minefield object
+        /// </summary>
+        public Minefield Minefield;
 
         // Add difficulty settings...
     }

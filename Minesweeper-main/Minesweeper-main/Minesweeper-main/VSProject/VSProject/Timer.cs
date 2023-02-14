@@ -15,7 +15,7 @@ namespace VSProject
     /// The class used to represent the game timer
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
-    class Timer
+    public class Timer
     {
     }
 }
