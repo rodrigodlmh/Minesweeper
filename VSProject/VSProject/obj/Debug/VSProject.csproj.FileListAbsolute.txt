@@ -1,0 +1,102 @@
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\GameWindow.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\Minesweeper\VSProject\VSProject\obj\Debug\GameWindow.baml
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\GameWindow.g.cs
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\GameWindow.baml
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\VSProject\VSProject\obj\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\VSProject.pdb
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe.config
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.pdb
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.g.cs
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\App.g.cs
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.baml
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.baml
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.g.resources
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.exe
+D:\C#pt2\LP4\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.pdb
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.g.cs
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.baml
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\olivo\OneDrive\c#\week 4\Minesweeper-main\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.pdb
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.g.cs
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\GameWindow.baml
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\rodri\Downloads\Minesweeper-main\Minesweeper-main\VSProject\VSProject\obj\Debug\VSProject.pdb
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\Minesweeper.g.cs
+C:\Users\rodri\OneDrive\Escritorio\Minesweeper\VSProject\VSProject\obj\Debug\Minesweeper.baml
