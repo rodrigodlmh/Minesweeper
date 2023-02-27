@@ -35,10 +35,12 @@
         <TextBox x:Name="rowsTB" HorizontalAlignment="Left" Height="23" Margin="82,415,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="120" Panel.ZIndex="5"/>
         <TextBox x:Name="minesTB" HorizontalAlignment="Left" Height="23" Margin="82,457,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" Panel.ZIndex="5"/>
         <CheckBox x:Name="safteynetCB" Content="First click is safe" HorizontalAlignment="Left" Margin="218,415,0,0" VerticalAlignment="Top" Panel.ZIndex="5" Background="White" IsChecked="True"/>
-        <ComboBox x:Name="playerCB" HorizontalAlignment="Left" Margin="363,375,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
-            <Button Content="I am the player"/>
-            <Button Content="A dumb computer is the player"/>
-            <Button Content="A smart computer is the player"/>
+        <ComboBox x:Name="playerCB" HorizontalAlignment="Left" Margin="363,375,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Player_SelectionChanged">
+            <Button Content="player"/>
+            <Button Content="dumbAI"/>
+            <Button Content="smartAI"/>
         </ComboBox>
+        <Label Content="PlayerType" Name="pType" HorizontalAlignment="Left" Margin="363,409,0,0" VerticalAlignment="Top" Background="White" Visibility="Hidden"/>
+
     </Grid>
 </Window>

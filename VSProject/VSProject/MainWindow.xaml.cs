@@ -44,6 +44,7 @@ namespace VSProject
             // Open a different window based on the difficulty selected
             // Right know all options open the medium difficulty window
             int columns;
+            
             if (int.TryParse(columnsTB.Text, out columns))
             {
                 int rows;
@@ -128,6 +129,25 @@ namespace VSProject
                 minesTB.Text = "99";
             }
         }
+        
+        public void Player_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            string selection = playerCB.SelectedItem.ToString();
+            if(selection == "System.Windows.Controls.Button: player")
+            {
+                pType.Content = "0";
+            }
+            else if (selection == "System.Windows.Controls.Button: dumbAI")
+            {
+                pType.Content = "1";
+            }
+            else if (selection == "System.Windows.Controls.Button: smartAI")
+            {
+                pType.Content = "2";
+            }
+        }
+
 
         /// <summary>
         /// Exit Button to close to the WPF 

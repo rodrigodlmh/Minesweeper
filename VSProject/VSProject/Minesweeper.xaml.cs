@@ -204,6 +204,24 @@ namespace VSProject
             MakeMove();
         }
 
+
+        private async void Wait()
+        {
+            // start the timer
+            int timerValue = 0;
+            int maxTimerValue = 1;
+
+            while (timerValue < maxTimerValue)
+            {
+                // wait for 1 second
+                await Task.Delay(1000); 
+                timerValue++;
+                
+            }
+        }
+
+
+
         /// <summary>
         /// the way computer player will play based on it's IQ
         ///</summary>
@@ -211,11 +229,12 @@ namespace VSProject
         {
             if (this.Game.FirstClick)
             {
+                Wait();
                 // The player already made his first click
                 this.Game.FirstClick = false;
                 Coordinate coord = Coordinate.GetRandomCoordinate(this.Columns, this.Rows);
                 this.Game.StartSafeGame(coord);
-                this.Game.GPT.RevealedCoordinates.Add(coord);
+                this.Game.GPT.RevealedCoords.Add(coord);
                 this.Game.Minefield.Squares[coord.X, coord.Y].Revealed = true;
                 ChangeImageOnState(Game.Minefield.Squares[coord.X, coord.Y].State, coord);
                 SearchMines(coord);
@@ -225,17 +244,194 @@ namespace VSProject
                 return;
             }
 
+
+
             if (Player == 1)
             {
-                Coordinate selection = this.Game.GPT.RandomizeSelection();
-                ChangeImageOnState(Game.Minefield.Squares[selection.X, selection.Y].State, selection);
+                Wait();
 
+                Coordinate selection = this.Game.GPT.RandomizeSelection();
+                State s = Game.Minefield.Squares[selection.X, selection.Y].State;
+
+                //ChangeImageOnState(s, selection);
+
+
+                // If they click on a mine
+                if (s == State.IsAMine)
+                {
+                    this.RevealAllMines();
+                    this.Timer.Stop();
+                    MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        this.Exit();
+                    }
+                    else
+                    {
+                        this.Restart();
+                    }
+                }
+                else if (s == State.NoMines)
+                {
+                    this.SearchMines(selection);
+                }
+                else if (!this.Game.GetRevealed(selection))
+                {
+                    this.Game.LeftClicks++;
+                }
+
+                this.ChangeImageOnState(s, selection);
+                if (this.Game.CheckWinCondition())
+                {
+
+                    this.Timer.Stop();
+                    MessageBox.Show("You win");
+                }
             }
+
+
             else if (Player == 2)
             {
-                this.Game.GPT.SmartSelection();
+                // get a coord of 100% or close
+                Coordinate i = this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows);
+                // recursion
+                SmartAI(i);
             }
+            
         }
+
+        // Couldn't have this in GPT class becuase everything private here. Couldn't recursively change image in GPT class
+        // Recursion 
+        private void SmartAI(Coordinate coord)
+        {
+            // Keep variable a when we need to have this be a recursion method (while loops) not done yet
+            //int a = 0;
+
+            Coordinate dumby;
+            List<Coordinate> dumbylist;
+            int percent = this.Game.GPT.MinePercent(coord);
+            // opening mines
+
+            // flag any surrounding squares
+            if (percent == 100)
+            {
+                dumbylist = this.Game.GPT.FlagCoords(coord);
+                /*while (dumbylist.Count - 1 == a)
+                {
+                    // one sec pause
+                    this.ChangeImageOnState2(State2.Flag, dumbylist[a]);
+                    a++;
+                }
+                a = 0;*/
+
+                if (dumbylist.Count >= 1)
+                {
+                    ChangeImageOnState2(State2.Question, dumbylist[0]);
+                    this.Game.Minefield.Squares[coord.X, coord.Y].Revealed = true;
+                }
+                if (dumbylist.Count == 1)
+                {
+                    this.Game.GPT.RevealedCoords.Add(coord);
+                }
+                dumbylist.Clear();
+            }
+
+            // dig up any surrounding green squares
+            else if (percent == 101)
+            {
+                // loops until no more green squares (hopefully)
+                dumbylist = this.Game.GPT.UncoverCoords(coord);
+                /*while (dumbylist.Count > a)
+                {
+                    State state = this.Game.Minefield.Squares[dumbylist[a].X, dumbylist[a].Y].State;
+                    this.ChangeImageOnState(state, dumbylist[a]);
+                    this.Game.LeftClicks++;
+                    // one sec pause
+                    SmartAI(dumbylist[a]);
+                    a++;
+                }*/
+                State state = this.Game.Minefield.Squares[dumbylist[0].X, dumbylist[0].Y].State;
+                this.ChangeImageOnState2(State2.Flag, dumbylist[0]);
+                this.Game.LeftClicks++;
+                if (dumbylist.Count == 1)
+                {
+                    this.Game.GPT.RevealedCoords.Add(dumbylist[0]);
+                }
+                dumbylist.Clear();
+            }
+
+            // pick a random square that we arent sure of
+            else
+            {
+                //for (int i = 0; i == this.Game.GPT.GetStateNumber(coord); i++){
+                    //Choosing random numbers to pick
+                    Random rand = new Random();
+                    int xNum = rand.Next(0, 2);
+                    int yNum = rand.Next(0, 2);
+                    while (true)
+                    {
+                        if (this.Game.GPT.PrevChecked(new Coordinate(xNum, yNum)) && !(Game.GPT.CheckInBounds(new Coordinate((coord.X + xNum - 1), (coord.Y + yNum - 1)))))
+                        {
+                            xNum = rand.Next(0, 2);
+                            yNum = rand.Next(0, 2);
+                    }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    dumby = new Coordinate((coord.X + xNum - 1), (coord.Y + yNum - 1));
+
+                    State state = this.Game.GetSquare(dumby).State;
+
+                    // If they click on a mine
+                    if (state == State.IsAMine)
+                    {
+                        this.RevealAllMines();
+                        this.Timer.Stop();
+                        MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            this.Exit();
+                        }
+                        else
+                        {
+                            this.Restart();
+                        }
+                    }
+                    else if (state == State.NoMines)
+                    {
+                        this.SearchMines(dumby);
+                        //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
+                        SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
+                    }
+                    else if (!this.Game.GetRevealed(dumby))
+                    {
+                        this.Game.LeftClicks++;
+                        //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
+                        SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
+                    }
+
+                    // one sec pause
+                    this.ChangeImageOnState(state, dumby);
+
+                    
+                //}
+                
+            }
+
+            if (this.Game.CheckWinCondition())
+            {
+                this.Timer.Stop();
+                MessageBox.Show("You win");
+            }
+
+            //win/lose condition
+
+
+        }
+
 
         /// <summary>
         /// Restart button event
@@ -565,6 +761,10 @@ namespace VSProject
                                     this.ChangeImageOnState(State.NoMines, new Coordinate(xNum, yNum));
                                     this.Game.Minefield.Squares[xNum, yNum].Revealed = true;
                                     this.Game.LeftClicks++;
+                                    if (Player > 0)
+                                    {
+                                        this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
+                                    }
                                     this.SearchMines(new Coordinate(xNum, yNum));
                                 }
                                 else
