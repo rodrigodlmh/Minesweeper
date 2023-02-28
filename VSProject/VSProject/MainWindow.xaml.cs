@@ -185,5 +185,12 @@ namespace VSProject
                 "6. Uncover all cells that do not contain mines to win the game.\n" +
                 "7. Be careful, one incorrect move can result in a loss!");
         }
+
+        private void Leaderboard_Click(object sender, RoutedEventArgs e)
+        {
+            LeaderboardWindow window = new LeaderboardWindow();
+            window.Show();
+            this.Close();
+        }
     }
 }

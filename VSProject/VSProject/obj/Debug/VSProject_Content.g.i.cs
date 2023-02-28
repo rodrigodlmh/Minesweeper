@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mainmenu.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("newfile1.txt")]
 
 

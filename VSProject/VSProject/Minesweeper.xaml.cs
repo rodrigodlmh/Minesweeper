@@ -373,51 +373,19 @@ namespace VSProject
                     a++;
                 }*/
                 //State state = this.Game.Minefield.Squares[dumbylist[0].X, dumbylist[0].Y].State;
-                State state = this.Game.Minefield.Squares[dumby.X, dumby.Y].State;
+                //State state = this.Game.Minefield.Squares[dumby.X, dumby.Y].State;
                 //this.ChangeImageOnState(state, dumbylist[0]);
-                this.ChangeImageOnState(state, dumby);
-                this.Game.LeftClicks++;
+                //this.ChangeImageOnState(state, dumby);
+                //this.Game.LeftClicks++;
                 /*if (dumbylist.Count == 1)
                 {
                     this.Game.GPT.RevealedCoords.Add(coord);
                 }*/
                 //dumbylist.Clear();
 
-                // If they click on a mine
-                if (state == State.IsAMine)
-                {
-                    this.RevealAllMines();
-                    this.Timer.Stop();
-                    MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        this.Exit();
-                    }
-                    else
-                    {
-                        this.Restart();
-                    }
-                }
-                else if (state == State.NoMines)
-                {
-                    this.SearchMines(dumby);
-                    //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
-                    //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
-                }
-                else if (!this.Game.GetRevealed(dumby))
-                {
-                    this.Game.LeftClicks++;
-                    //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
-                    //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
-                }
+                EndGame(dumby);
 
-                // one sec pause
-                this.ChangeImageOnState(state, dumby);
-                if (this.Game.CheckWinCondition())
-                {
-                    this.Timer.Stop();
-                    MessageBox.Show("You win");
-                }
+                
 
 
 
@@ -446,39 +414,8 @@ namespace VSProject
                     }
 
                     dumby = new Coordinate((coord.X + xNum - 1), (coord.Y + yNum - 1));
+                EndGame(dumby);
                     
-                    State state = this.Game.GetSquare(dumby).State;
-
-                    // If they click on a mine
-                    if (state == State.IsAMine)
-                    {
-                        this.RevealAllMines();
-                        this.Timer.Stop();
-                        MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            this.Exit();
-                        }
-                        else
-                        {
-                            this.Restart();
-                        }
-                    }
-                    else if (state == State.NoMines)
-                    {
-                        this.SearchMines(dumby);
-                        //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
-                        //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
-                    }
-                    else if (!this.Game.GetRevealed(dumby))
-                    {
-                        this.Game.LeftClicks++;
-                        //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
-                        //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
-                    }
-
-                    // one sec pause
-                    this.ChangeImageOnState(state, dumby);
 
                     
                 //}
@@ -499,6 +436,71 @@ namespace VSProject
 
             }
 
+        private bool LuckyChance()
+        {
+            Random random = new Random();
+
+            // generate a random number between 1 and 10 (inclusive)
+            int randomNumber = random.Next(1, 11); 
+
+            if (randomNumber == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void EndGame(Coordinate coord)
+        {
+            State state = this.Game.GetSquare(coord).State;
+
+            // If they click on a mine
+            if (state == State.IsAMine)
+            {
+                if (!LuckyChance())
+                {
+                    this.RevealAllMines();
+                    this.Timer.Stop();
+                    MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        this.Exit();
+                    }
+                    else
+                    {
+                        this.Restart();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You get another chance!");
+                }
+            }
+            else if (state == State.NoMines)
+            {
+                this.SearchMines(coord);
+                //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
+                //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
+            }
+            else if (!this.Game.GetRevealed(coord))
+            {
+                this.Game.LeftClicks++;
+                //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
+                //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
+            }
+
+            // one sec pause
+            this.ChangeImageOnState(state, coord);
+
+            if (this.Game.CheckWinCondition())
+            {
+                this.Timer.Stop();
+                MessageBox.Show("You win");
+            }
+        }
 
         /// <summary>
         /// Restart button event
@@ -608,7 +610,8 @@ namespace VSProject
 
             if (state2 != State2.Flag)
             {
-                // If they click on a mine
+                EndGame(coordinate);
+                /*// If they click on a mine
                 if (state == State.IsAMine)
                 {
                     this.RevealAllMines();
@@ -637,7 +640,7 @@ namespace VSProject
                 {
                     this.Timer.Stop();
                     MessageBox.Show("You win");
-                }
+                }*/
             }
         }
 

@@ -91,8 +91,10 @@ namespace VSProject
             return RevealedCoords.Contains(coord);
         }
 
-
-        //Returns the number of surrounding Green Squares
+        /// <summary>
+        /// Returns the number of surrounding Green Squares
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public int SurroundingGreen(Coordinate coordinate)
         {
             int gNumber = 0;
@@ -117,7 +119,10 @@ namespace VSProject
             return gNumber;
         }
 
-        // Returns number of surrounding flagged squares
+        /// <summary>
+        /// Returns the number of surrounding Flagged Squares
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public int SurroundingFlagged(Coordinate coordinate)
         {
             int fNumber = 0;
@@ -145,7 +150,10 @@ namespace VSProject
             return fNumber;
         }
 
-        // Gets the number square is
+        /// <summary>
+        /// Gets the number square it is
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public int GetStateNumber(Coordinate coordinate)
         {
             int sNumber = 0;
@@ -184,7 +192,10 @@ namespace VSProject
 
         }
 
-        // gives any coordinates that are green to flag
+        /// <summary>
+        /// Returns the coordinates of flags around iteself
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public Coordinate FlagCoords(Coordinate coord)
         {
             /*if (SurroundingCoords != null)
@@ -214,7 +225,10 @@ namespace VSProject
             return CurrentCoord;
         }
 
-        // Uncovers any coordinates that are green and recalls the probability method
+        /// <summary>
+        /// Uncovers any coordinates that are green and recalls the probability method
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public Coordinate UncoverCoords(Coordinate coord)
         {
             /*if (SurroundingCoords != null)
@@ -242,15 +256,20 @@ namespace VSProject
             }
             return CurrentCoord;
         }
-
-        // Checks if the coordinates given are in bounds
+        /// <summary>
+        /// Checks if the coordinates given are in bounds
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public bool CheckInBounds(Coordinate coord)
         {
             bool In = this.GameMinefield.IsCoordinateValid(coord);
             return In;
         }
 
-        // Check the state2 if the square is flagged or not returns true if yes false no
+        /// <summary>
+        /// Check the state2 if the square is flagged or not returns true if yes false no
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public bool CheckFlagged(Coordinate coord)
         {
             bool In = false;
@@ -267,7 +286,10 @@ namespace VSProject
             return In;
         }
 
-        // Return the precentage the in which we can deterime the location of mines around it
+        /// <summary
+        /// Return the precentage the in which we can deterime the location of mines around it
+        /// </sumamry>
+        /// <param name="Coordinate"> chooses a coordinate to pick and interact with</param>
         public int MinePercent(Coordinate coord)
         {
             int percent = 0;

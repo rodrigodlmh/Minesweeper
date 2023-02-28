@@ -41,6 +41,7 @@
             <Button Content="smartAI"/>
         </ComboBox>
         <Label Content="PlayerType" Name="pType" HorizontalAlignment="Left" Margin="363,409,0,0" VerticalAlignment="Top" Background="White" Visibility="Hidden"/>
+        <Button Content="Skin Type" HorizontalAlignment="Left" Margin="184,284,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.979,0.526" Click="Leaderboard_Click" Background="#FF55FF63" FontWeight="Bold"/>
 
     </Grid>
 </Window>
