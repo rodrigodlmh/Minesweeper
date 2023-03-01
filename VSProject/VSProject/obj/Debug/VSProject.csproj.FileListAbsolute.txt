@@ -134,3 +134,5 @@ D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debu
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\VSProject.exe
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\VSProject.pdb
+D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\LeaderboardWindow.g.cs
+D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\LeaderboardWindow.baml

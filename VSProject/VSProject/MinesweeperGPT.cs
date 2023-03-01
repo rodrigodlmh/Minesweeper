@@ -241,11 +241,10 @@ namespace VSProject
             }*/
             for (int xNum = coord.X - 1; xNum <= coord.X + 1; xNum++)
             {
-                for (int yNum = coord.Y - 1; yNum <= coord.Y + 1; yNum++)
-                {
+                for (int yNum = coord.Y - 1; yNum <= coord.Y + 1; yNum++) { 
                     if (CheckInBounds(new Coordinate(xNum, yNum)))
                     {
-                        if ((this.GameMinefield.Squares[xNum, yNum].Revealed != true) && !CheckFlagged(new Coordinate(xNum, yNum)))
+                        if ((this.GameMinefield.Squares[xNum, yNum].Revealed == false) && (CheckFlagged(new Coordinate(xNum, yNum)) == false) && (CheckInBounds(new Coordinate(xNum, yNum)) == true))
                         {
                             CurrentCoord = new Coordinate(xNum, yNum);
                             return CurrentCoord;
@@ -294,50 +293,60 @@ namespace VSProject
         {
             int percent = 0;
             List<Coordinate> revealedCoords = RevealedCoords;
-            if ((this.GameMinefield.Squares[coord.X, coord.Y].Revealed) && (revealedCoords.Contains(coord) == false))
+            if ((this.GameMinefield.Squares[coord.X, coord.Y].Revealed) && revealedCoords.Contains(coord) == false)
             {
                 int sNum = GetStateNumber(coord);
                 // If square blank
                 if (sNum != 0)
                 {
+
+
                     int sFlag = SurroundingFlagged(coord);
                     int sGrass = SurroundingGreen(coord);
-                    //if (sFlag != 0 && sGrass != 8) 
-                    //{
 
-                    if (sNum != sFlag || sGrass != 0)
+                    if (sNum == sFlag && sGrass == 0 && RevealedCoords.Contains(coord) == false)
                     {
-                        // If 100% probability OR If grass equals squares
-                        if ((sFlag + sGrass == sNum) || (sNum == sGrass))
-                        {
-                            // Flag all blanks
-                            percent = 100;
-                            //RevealedCoords.Add(coord);
-                        }
+                        RevealedCoords.Add(coord);
+                        return percent;
+                    }
+                    if ((sFlag + sGrass == sNum) || (sNum == sGrass && sFlag == 0))
+                    {
+                        // Flag all blanks
+                        percent = 100;
+                        return percent;
+                        //RevealedCoords.Add(coord);
+                    }
+                    if (sNum == sFlag && sGrass > 0)
+                    {
+                        // uncover all blanks
+                        percent = 101;
+                        return percent;
+                        //RevealedCoords.Add(coord);
+                    }
 
-                        // If flags equal square but there are still grass
-                        else if (sNum == sFlag && sGrass >= 1)
-                        {
-                            // uncover all blanks
-                            percent = 101;
-                            //RevealedCoords.Add(coord);
-                        }
-                        else
-                        {
-                            percent = getPercent(sNum, sFlag, sGrass);
+                    // Logic rule 1 2 1
 
+                    // Checking if up down left and right of square are all in bounds and the square is 2
+                    if (CheckInBounds(new Coordinate(coord.X + 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X - 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X, coord.Y + 1)) && CheckInBounds(new Coordinate(coord.X, coord.Y - 1)) && GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2)
+                        {
+                        // Checks the numbers left and right of square
+                        if (GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 1 && (this.GameMinefield.Squares[coord.X - 1, coord.Y].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y].Revealed))
+                        {
+                            percent = 102;
+                            return percent;
+                        }
+                        // Checks numbers up and down of square
+                        if (GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 1 && (this.GameMinefield.Squares[coord.X, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y - 1].Revealed))
+                        {
+                            percent = 103;
+                            return percent;
                         }
                     }
-                    else
-                    {
-                        if (sNum == sFlag && sGrass == 0)
-                        {
-                            RevealedCoords.Add(coord);
-                        }
-                        
-                    }
-                    //}
+                    percent = getPercent(sNum, sFlag, sGrass);
                 }
+
+                
+
             }
             return percent;
         }

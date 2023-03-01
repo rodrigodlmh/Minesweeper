@@ -8,8 +8,7 @@ namespace VSProject
 {
     public class Leaderboard
     {
-        float time;
-        string initials;
-        int revealedSquares;
+        public string initials;
+        public float score;
     }
 }

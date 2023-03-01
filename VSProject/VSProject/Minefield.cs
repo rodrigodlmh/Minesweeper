@@ -219,6 +219,25 @@ namespace VSProject
             int y = coordinate.Y;
             List<Coordinate> coordinates = new List<Coordinate>();
 
+            for(int xNum = x - 1; xNum <= x + 1; xNum++)
+            {
+                for (int yNum = y - 1; yNum <= y + 1; yNum++)
+                {
+                    if(xNum == 0 && y== 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        if (IsCoordinateValid(new Coordinate(xNum, yNum)))
+                        {
+                            coordinates.Add(new Coordinate(xNum, yNum));
+                        }
+                    }
+                }
+            }
+
+            /*
             coordinates.Add(new Coordinate(x - 1, y - 1)); // top left
             coordinates.Add(new Coordinate(x, y - 1)); // top
             coordinates.Add(new Coordinate(x + 1, y - 1)); // top right
@@ -227,6 +246,7 @@ namespace VSProject
             coordinates.Add(new Coordinate(x - 1, y + 1)); // bottom left
             coordinates.Add(new Coordinate(x, y + 1)); // bottom
             coordinates.Add(new Coordinate(x + 1, y + 1)); // bottom right
+            */
             return coordinates;
         }
 

@@ -19,6 +19,7 @@ namespace VSProject
     using System.Windows.Media.Imaging;
     using System.Windows.Shapes;
     using System.Windows.Threading;
+    using System.IO;
 
     /// <summary>
     /// Interaction logic for Minesweeper.xaml
@@ -132,6 +133,18 @@ namespace VSProject
             this.Timer.Tick += this.Timer_Tick;
         }
 
+        private void WriteResultsToFile(float time, int revealedSquares)
+        {
+            float score = time / revealedSquares;
+            string initials = "null";
+            
+            StreamWriter streamWriter = new StreamWriter("leaderboard.txt");
+            streamWriter.WriteLine(initials + '\t' + score.ToString());
+            streamWriter.Close();
+        }
+
+
+
         /// <summary>
         /// creates the grid for the game board with the number of rows and columns specified by the user 
         /// </summary>
@@ -242,7 +255,7 @@ namespace VSProject
                 this.TenthsOfSecondsElapsed = 0;
                 return;
             }
-            Wait();
+            //Wait();
 
 
             if (Player == 1)
@@ -256,7 +269,7 @@ namespace VSProject
 
 
                 // If they click on a mine
-                if (s == State.IsAMine)
+                /*if (s == State.IsAMine)
                 {
                     this.RevealAllMines();
                     this.Timer.Stop();
@@ -276,7 +289,7 @@ namespace VSProject
                 }
                 else if (!this.Game.GetRevealed(selection))
                 {
-                    this.Game.LeftClicks++;
+                    //this.Game.LeftClicks++;
                 }
 
                 this.ChangeImageOnState(s, selection);
@@ -285,7 +298,9 @@ namespace VSProject
 
                     this.Timer.Stop();
                     MessageBox.Show("You win");
-                }
+                }*/
+
+                EndGame(selection);
             }
 
 
@@ -331,19 +346,28 @@ namespace VSProject
                 //ChangeImageOnState2(State2.Question, dumbylist[0]);
                 //this.Game.Minefield.Squares[coord.X, coord.Y].Revealed = true;
                 ChangeImageOnState2(State2.Question, dumby);
-                
-                for (int xNum = dumby.X - 1; xNum <= dumby.X + 1; xNum++)
+                sNum = this.Game.GPT.GetStateNumber(dumby);
+                sFlag = this.Game.GPT.SurroundingFlagged(dumby);
+                sGrass = this.Game.GPT.SurroundingGreen(dumby);
+                if ((sNum == sFlag && sGrass == 0) && !Game.GPT.RevealedCoords.Contains(coord))
                 {
-                    for (int yNum = dumby.Y - 1; yNum <= dumby.Y + 1; yNum++)
-                    {
-                        sNum = this.Game.GPT.GetStateNumber(coord);
-                        sFlag = this.Game.GPT.SurroundingFlagged(coord);
-                        sGrass = this.Game.GPT.SurroundingGreen(coord);
-                        if ((sNum == sFlag && sGrass == 0) && !Game.GPT.RevealedCoords.Contains(coord))
+                    Game.GPT.RevealedCoords.Add(coord);
+                }
+                dumbylist = Game.Minefield.GetSurroundingCoordinates(dumby);
+                for (int b = 0; b < dumbylist.Count(); b++)
+                {
+
+                        if (Game.Minefield.Squares[dumbylist[b].X, dumbylist[b].Y].Revealed != true && Game.GPT.RevealedCoords.Contains(dumbylist[b]) == false)
                         {
-                            Game.GPT.RevealedCoords.Add(coord);
+                            sNum = this.Game.GPT.GetStateNumber(dumbylist[b]);
+                            sFlag = this.Game.GPT.SurroundingFlagged(dumbylist[b]);
+                            sGrass = this.Game.GPT.SurroundingGreen(dumbylist[b]);
+                            if ((sNum == sFlag && sGrass == 0))
+                            {
+                                Game.GPT.RevealedCoords.Add(dumbylist[b]);
+                            }
                         }
-                    }
+                    
                 }
 
 
@@ -390,6 +414,33 @@ namespace VSProject
 
 
 
+            }
+            else if(percent >= 102)
+            {
+                if (percent == 102)
+                {
+                    if ((Game.Minefield.Squares[coord.X, coord.Y + 1].Revealed != true) && Game.GPT.CheckFlagged(new Coordinate(coord.X, coord.Y + 1)) == false && Game.GPT.RevealedCoords.Contains(new Coordinate(coord.X, coord.Y + 1)) == false && Game.GPT.CheckInBounds(new Coordinate(coord.X, coord.Y + 1)))
+                    {
+                        EndGame(new Coordinate(coord.X, coord.Y + 1));
+                    }
+
+                    else if((Game.Minefield.Squares[coord.X, coord.Y - 1].Revealed != true) && Game.GPT.CheckFlagged(new Coordinate(coord.X, coord.Y - 1)) == false )
+                    {
+                        EndGame(new Coordinate(coord.X, coord.Y - 1));
+
+                    }
+                }
+                if(percent == 103)
+                {
+                    if ((Game.Minefield.Squares[coord.X+1, coord.Y].Revealed != true) && Game.GPT.CheckFlagged(new Coordinate(coord.X + 1, coord.Y)) == false && Game.GPT.RevealedCoords.Contains(new Coordinate(coord.X + 1, coord.Y + 1)) == false && Game.GPT.CheckInBounds(new Coordinate(coord.X + 1, coord.Y)))
+                    {
+                        EndGame(new Coordinate(coord.X + 1, coord.Y));
+                    }
+                    else if ((Game.Minefield.Squares[coord.X - 1, coord.Y].Revealed != true) && Game.GPT.CheckFlagged(new Coordinate(coord.X - 1, coord.Y - 1)) == false)
+                    {
+                        EndGame(new Coordinate(coord.X - 1, coord.Y - 1));
+                    }
+                }
             }
 
             // pick a random square that we arent sure of
@@ -456,7 +507,7 @@ namespace VSProject
         private void EndGame(Coordinate coord)
         {
             State state = this.Game.GetSquare(coord).State;
-
+            this.ChangeImageOnState(state, coord);
             // If they click on a mine
             if (state == State.IsAMine)
             {
@@ -464,6 +515,7 @@ namespace VSProject
                 {
                     this.RevealAllMines();
                     this.Timer.Stop();
+                    this.WriteResultsToFile(this.TenthsOfSecondsElapsed / 1f, this.Game.LeftClicks);
                     MessageBoxResult result = MessageBox.Show("Game over? yes to quit no to retry", "Game Over 😿", MessageBoxButton.YesNo, MessageBoxImage.Hand);
                     if (result == MessageBoxResult.Yes)
                     {
@@ -487,13 +539,13 @@ namespace VSProject
             }
             else if (!this.Game.GetRevealed(coord))
             {
-                this.Game.LeftClicks++;
+                //this.Game.LeftClicks++;
                 //this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
                 //SmartAI(this.Game.GPT.FindHighestCoordPercent(Game.Minefield.Columns, Game.Minefield.Rows));
             }
 
             // one sec pause
-            this.ChangeImageOnState(state, coord);
+            //this.ChangeImageOnState(state, coord);
 
             if (this.Game.CheckWinCondition())
             {
@@ -705,6 +757,7 @@ namespace VSProject
         /// <param name="c"> the coordinates of the square imported into the method</param>
         private void ChangeImageOnState(State s, Coordinate c)
         {
+            this.Game.LeftClicks++;
             BitmapImage bi3 = new BitmapImage();
 
             bi3.BeginInit();
@@ -830,7 +883,7 @@ namespace VSProject
                                 {
                                     this.ChangeImageOnState(State.NoMines, new Coordinate(xNum, yNum));
                                     this.Game.Minefield.Squares[xNum, yNum].Revealed = true;
-                                    this.Game.LeftClicks++;
+                                    //this.Game.LeftClicks++;
                                     if (Player > 0)
                                     {
                                         this.Game.GPT.RevealedCoords.Add(new Coordinate(xNum, yNum));
@@ -842,7 +895,7 @@ namespace VSProject
                                     State state = this.Game.Minefield.Squares[xNum, yNum].State;
                                     this.ChangeImageOnState(state, new Coordinate(xNum, yNum));
                                     this.Game.Minefield.Squares[xNum, yNum].Revealed = true;
-                                    this.Game.LeftClicks++;
+                                    //this.Game.LeftClicks++;
                                 }
                             }
                         }

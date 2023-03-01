@@ -20,7 +20,7 @@ namespace VSProject
     using System.Windows.Navigation;
     using System.Windows.Shapes;
 
-    /// <summary>
+    /// <summay>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Encapsulation not yet taught.")]
