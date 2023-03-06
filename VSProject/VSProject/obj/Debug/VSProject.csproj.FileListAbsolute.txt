@@ -136,3 +136,22 @@ D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debu
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\VSProject.pdb
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\LeaderboardWindow.g.cs
 D:\C#pt2\LP6\Minesweeper-main\Minesweeper-main-2-26\VSProject\VSProject\obj\Debug\LeaderboardWindow.baml
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\bin\Debug\VSProject.exe.config
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\bin\Debug\VSProject.exe
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\bin\Debug\VSProject.pdb
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.csproj.AssemblyReference.cache
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\LeaderboardWindow.g.cs
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\MainWindow.g.cs
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\Minesweeper.g.cs
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\App.g.cs
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.cache
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject_MarkupCompile.lref
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\LeaderboardWindow.baml
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\MainWindow.baml
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\Minesweeper.baml
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.g.resources
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.Properties.Resources.resources
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.csproj.GenerateResource.cache
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.csproj.CoreCompileInputs.cache
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.exe
+C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\obj\Debug\VSProject.pdb

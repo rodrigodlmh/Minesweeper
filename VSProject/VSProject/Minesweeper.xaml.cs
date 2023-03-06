@@ -6,6 +6,7 @@
 namespace VSProject
 {
     using System;
+    using System.Media;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
@@ -729,6 +730,8 @@ namespace VSProject
             {
                 this.ChangeImageOnState(State.IsAMine, c);
             }
+            SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\olivo\OneDrive\c#\week 8\VSProject\VSProject\Images\flag.wav");
+            soundPlayer.Play();
         }
 
         /// <summary>
