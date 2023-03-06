@@ -32,18 +32,21 @@ namespace VSProject
         private void ReadFile()
         {
             StreamReader streamreader = new StreamReader("leaderboard.txt");
-
+            
             while (!streamreader.EndOfStream)
             {
                 string line = streamreader.ReadLine();
-                string[] split = line.Split('\t');
-
+                string[] split = line.Split(' ');
+                if (split.Length <= 1)
+                {
+                    return;
+                }
                 Leaderboard leaderboard1 = new Leaderboard();
-                if (float.TryParse(split[0], out leaderboard1.score))
+                leaderboard1.initials = split[0];
+                if(float.TryParse(split[1], out leaderboard1.score))
                 {
 
                 }
-                leaderboard1.initials = split[1];
 
                 leaderboards.Add(leaderboard1);
             }
@@ -52,42 +55,27 @@ namespace VSProject
 
         private void WriteFile()
         {
-            List<Leaderboard> highscores = new List<Leaderboard>();
-            LeaderboardLB.Items.Add("Name\t" + "Score\t");
-            foreach (Leaderboard lb in leaderboards)
+            LeaderboardLB.Items.Add("Highscores");
+            LeaderboardLB.Items.Add("Name\t" + "Score");
+            LoserboardLB.Items.Add("Low scores");
+            LoserboardLB.Items.Add("Name\t" + "Score");
+
+            leaderboards.Sort((x, y) => x.score.CompareTo(y.score));
+
+            int length = leaderboards.Count();
+            if (length > 5)
             {
-                if (highscores.Count >= 5)
-                {
-                    int validCount = 0;
-                    int lowestScoreIndex = 0;
-                    int lowestScore = 1000000000;
-                    for (int i = 0; i < highscores.Count; i++)
-                    {
-                        if (highscores[i].score < lowestScore)
-                        {
-                            lowestScoreIndex = i;
-                        }
-
-                        if (lb.score > highscores[i].score)
-                        {
-                            validCount++;
-                        }
-                    }
-
-                    if (validCount == highscores.Count)
-                    {
-                        highscores[lowestScoreIndex] = lb;
-                    }
-                }
-                else
-                {
-                    highscores.Add(lb);
-                }
+                length = 5;
             }
 
-            foreach(Leaderboard lb in highscores)
+            for (int i = leaderboards.Count() - 1; i >= leaderboards.Count() - length; i--)
             {
-                LeaderboardLB.Items.Add(lb.initials + '\t' + lb.score);
+                LeaderboardLB.Items.Add(leaderboards[i].initials + '\t' + leaderboards[i].score);
+            }
+
+            for (int j = 0; j < length; j++)
+            {
+                LoserboardLB.Items.Add(leaderboards[j].initials + '\t' + leaderboards[j].score);
             }
         }
     }

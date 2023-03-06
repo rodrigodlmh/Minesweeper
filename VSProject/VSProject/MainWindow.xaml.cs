@@ -60,11 +60,11 @@ namespace VSProject
                                 Minesweeper window;
                                 if (safteynetCB.IsChecked == true)
                                 {
-                                    window = new Minesweeper(rows, columns, mines, true, playerCB.SelectedIndex);
+                                    window = new Minesweeper(rows, columns, mines, true, playerCB.SelectedIndex, initialsTB.Text);
                                 }
                                 else 
                                 {
-                                    window = new Minesweeper(rows, columns, mines, false, playerCB.SelectedIndex);
+                                    window = new Minesweeper(rows, columns, mines, false, playerCB.SelectedIndex, initialsTB.Text);
                                 }
 
                                 window.Show();
@@ -191,6 +191,11 @@ namespace VSProject
             LeaderboardWindow window = new LeaderboardWindow();
             window.Show();
             this.Close();
+        }
+
+        private void Theme_Choice_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

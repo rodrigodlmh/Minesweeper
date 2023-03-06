@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LeaderboardWindow" Height="450" Width="800">
     <Grid>
-        <ListBox Name="LeaderboardLB" HorizontalAlignment="Left" Height="281" Margin="239,68,0,0" VerticalAlignment="Top" Width="317"/>
-
+        <ListBox Name="LeaderboardLB" HorizontalAlignment="Left" Height="281" Margin="53,73,0,0" VerticalAlignment="Top" Width="317"/>
+        <ListBox Name="LoserboardLB" HorizontalAlignment="Left" Height="281" Margin="398,73,0,0" VerticalAlignment="Top" Width="353"/>
     </Grid>
 </Window>

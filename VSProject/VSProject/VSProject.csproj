@@ -116,30 +116,108 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Grass.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\mainMenu.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\1.jpg" />
-    <Resource Include="Images\2.jpg" />
-    <Resource Include="Images\3.jpg" />
-    <Resource Include="Images\4.jpg" />
-    <Resource Include="Images\5.jpg" />
-    <Resource Include="Images\6.jpg" />
-    <Resource Include="Images\7.jpg" />
-    <Resource Include="Images\Blank.jpg" />
+    <None Include="Resources\reveal.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\8.jpg" />
+    <None Include="Resources\mouseclick.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Bomb.jpg" />
+    <None Include="Resources\flag.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Grass_Flag.png" />
-    <Resource Include="Images\Grass_Question.png" />
+    <None Include="Resources\explosion.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\winter_hell\RevealedSnow.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowBomb2.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowEight.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowFive.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowFour.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowOne.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowSeven.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowSix.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowThree.jpg" />
+    <Resource Include="Images\winter_hell\RevealedSnowTwo.jpg" />
+    <Resource Include="Images\winter_hell\snow.jpg" />
+    <Resource Include="Images\winter_hell\snowFlag.jpg" />
+    <Resource Include="Images\winter_hell\snowQuestion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\space_cowboy\RevealedSpace.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceBomb.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceFive.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceFour.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceOne.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceSeven.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceSix.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceThree.jpg" />
+    <Resource Include="Images\space_cowboy\RevealedSpaceTwo.jpg" />
+    <Resource Include="Images\space_cowboy\Space.jpg" />
+    <Resource Include="Images\space_cowboy\SpaceFlag.jpg" />
+    <Resource Include="Images\space_cowboy\SpaceQuestion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\normal_shit\1.jpg" />
+    <Resource Include="Images\normal_shit\2.jpg" />
+    <Resource Include="Images\normal_shit\3.jpg" />
+    <Resource Include="Images\normal_shit\4.jpg" />
+    <Resource Include="Images\normal_shit\5.jpg" />
+    <Resource Include="Images\normal_shit\6.jpg" />
+    <Resource Include="Images\normal_shit\7.jpg" />
+    <Resource Include="Images\normal_shit\8.jpg" />
+    <Resource Include="Images\normal_shit\Blank.jpg" />
+    <Resource Include="Images\normal_shit\Bomb.jpg" />
+    <Resource Include="Images\normal_shit\Grass.png" />
+    <Resource Include="Images\normal_shit\Grass_Flag.png" />
+    <Resource Include="Images\normal_shit\Grass_Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Binary\BinaryBlank.jpg" />
+    <Resource Include="Images\Binary\BinaryBlankFlag.jpg" />
+    <Resource Include="Images\Binary\BinaryBlankQuestion.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryBlank.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryBomb.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryEight.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryFive.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryFour.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryOne.jpg" />
+    <Resource Include="Images\Binary\RevealedBinarySeven.jpg" />
+    <Resource Include="Images\Binary\RevealedBinarySix.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryThree.jpg" />
+    <Resource Include="Images\Binary\RevealedBinaryTwo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beach_bitch\RevealedSand.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandBomb.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandEight.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandFive.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandFour.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandOne.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandSeven.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandSix.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandThree.jpg" />
+    <Resource Include="Images\beach_bitch\RevealedSandTwo.jpg" />
+    <Resource Include="Images\beach_bitch\Sand.jpg" />
+    <Resource Include="Images\beach_bitch\SandFlag.jpg" />
+    <Resource Include="Images\beach_bitch\SandQuestion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\alphabet_ass\Purple.jpg" />
+    <Resource Include="Images\alphabet_ass\PurpleFlag.jpg" />
+    <Resource Include="Images\alphabet_ass\PurpleQuestion.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurple.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleBomb.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleEight.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleFive.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleFour.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleOne.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleSeven.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleSix.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleThree.jpg" />
+    <Resource Include="Images\alphabet_ass\RevealedPurpleTwo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

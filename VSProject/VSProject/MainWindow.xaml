@@ -19,6 +19,13 @@
         <Button Content="Exit" x:Name="ExitButton" HorizontalAlignment="Left" Margin="184,233,0,0" VerticalAlignment="Top" Width="75" Click="ExitButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold" Panel.ZIndex="1"/>
         <Button Content="About" x:Name="AboutButton" HorizontalAlignment="Left" Margin="184,207,0,0" VerticalAlignment="Top" Width="75" Click="AboutButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold" Panel.ZIndex="-1"/>
         <Button Content="Rules" Name="rulesButton" HorizontalAlignment="Left" Margin="184,259,0,0" VerticalAlignment="Top" Width="75" Click="RulesButton_Click" Cursor="Hand" Background="#FF55FF63" FontWeight="Bold" Panel.ZIndex="-10"/>
+        <ComboBox x:Name="Theme_Choice" HorizontalAlignment="Left" Margin="218,457,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Theme_Choice_SelectionChanged" Panel.ZIndex="5">
+        <Button Content="Winter hell"/>
+        <Button Content="Beach bitch"/>
+        <Button Content="Normal shit"/>
+        <Button Content="Space cowboy"/>
+        <Button Content="Binary bastard"/>
+        </ComboBox>
         <Label x:Name="rowsLabel" Content="Rows:" HorizontalAlignment="Left" Margin="18,415,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.942,0.167" Panel.ZIndex="5" Background="White" Width="59">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -42,6 +49,7 @@
         </ComboBox>
         <Label Content="PlayerType" Name="pType" HorizontalAlignment="Left" Margin="363,409,0,0" VerticalAlignment="Top" Background="White" Visibility="Hidden"/>
         <Button Content="Leaderboard" HorizontalAlignment="Left" Margin="184,284,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.979,0.526" Click="Leaderboard_Click" Background="#FF55FF63" FontWeight="Bold"/>
-
+        <TextBox x:Name="initialsTB" HorizontalAlignment= "Left" Height="22" Margin="184,309,0,0" TextWrapping="Wrap" Text="AA" VerticalAlignment="Top" Width="75"/>
+        
     </Grid>
 </Window>

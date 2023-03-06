@@ -68,7 +68,7 @@ namespace VSProject
             while(!valid)    
             {
                 Coordinate selection = Coordinate.GetRandomCoordinate(GameMinefield.Columns, GameMinefield.Rows);
-                if (GameMinefield.Squares[selection.X, selection.Y].Revealed)
+                if (GameMinefield.Squares[selection.X, selection.Y].Revealed == true)
                 {
                     valid = false;
                 }
@@ -255,6 +255,7 @@ namespace VSProject
             }
             return CurrentCoord;
         }
+
         /// <summary>
         /// Checks if the coordinates given are in bounds
         /// </sumamry>
@@ -292,8 +293,7 @@ namespace VSProject
         public int MinePercent(Coordinate coord)
         {
             int percent = 0;
-            List<Coordinate> revealedCoords = RevealedCoords;
-            if ((this.GameMinefield.Squares[coord.X, coord.Y].Revealed) && revealedCoords.Contains(coord) == false)
+            if ((this.GameMinefield.Squares[coord.X, coord.Y].Revealed) && !RevealedCoords.Contains(coord))
             {
                 int sNum = GetStateNumber(coord);
                 // If square blank
@@ -304,7 +304,7 @@ namespace VSProject
                     int sFlag = SurroundingFlagged(coord);
                     int sGrass = SurroundingGreen(coord);
 
-                    if (sNum == sFlag && sGrass == 0 && RevealedCoords.Contains(coord) == false)
+                    if (sNum == sFlag && sGrass == 0 && !RevealedCoords.Contains(coord))
                     {
                         RevealedCoords.Add(coord);
                         return percent;
@@ -314,39 +314,102 @@ namespace VSProject
                         // Flag all blanks
                         percent = 100;
                         return percent;
-                        //RevealedCoords.Add(coord);
                     }
                     if (sNum == sFlag && sGrass > 0)
                     {
                         // uncover all blanks
                         percent = 101;
                         return percent;
-                        //RevealedCoords.Add(coord);
                     }
 
-                    // Logic rule 1 2 1
+                    // Checking if left, right, top, bottom are all inbounds
+                    if (CheckInBounds(new Coordinate(coord.X + 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X - 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X, coord.Y + 1)) && CheckInBounds(new Coordinate(coord.X, coord.Y - 1)))
+                    {
 
-                    // Checking if up down left and right of square are all in bounds and the square is 2
-                    if (CheckInBounds(new Coordinate(coord.X + 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X - 1, coord.Y)) && CheckInBounds(new Coordinate(coord.X, coord.Y + 1)) && CheckInBounds(new Coordinate(coord.X, coord.Y - 1)) && GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2)
+                        // right and left
+                        if ((this.GameMinefield.Squares[coord.X + 1, coord.Y].Revealed) && (this.GameMinefield.Squares[coord.X - 1, coord.Y].Revealed))
                         {
-                        // Checks the numbers left and right of square
-                        if (GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 1 && (this.GameMinefield.Squares[coord.X - 1, coord.Y].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y].Revealed))
-                        {
-                            percent = 102;
-                            return percent;
+
+                            // Checking if the top are all revealed
+                            if ((this.GameMinefield.Squares[coord.X - 1, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y + 1].Revealed == false))
+                            {
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 1)
+                                {
+                                    // return 102 if the top is already revealed and in a 1 2 1 format of each other
+                                    percent = 102;
+                                    return percent;
+                                }
+
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 2)
+                                {
+                                    // return 102 if the top is already revealed and in a 2 1 2 format of each other
+                                    percent = 102;
+                                    return percent;
+                                }
+                            }
+
+                            // Checking if the bottom are all revealed
+                            if ((this.GameMinefield.Squares[coord.X - 1, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y - 1].Revealed == false))
+                            {
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 1)
+                                {
+                                    // return 103 if the bottom is already revealed and in a 1 2 1 format of each other
+                                    percent = 103;
+                                    return percent;
+                                }
+
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X + 1, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X - 1, coord.Y)) == 2)
+                                {
+                                    // return 103 if the bottom is already revealed and in a 2 1 2 format of each other
+                                    percent = 103;
+                                    return percent;
+                                }
+                            }
                         }
-                        // Checks numbers up and down of square
-                        if (GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 1 && (this.GameMinefield.Squares[coord.X, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y - 1].Revealed))
+
+
+                        // up and down
+                        if ((this.GameMinefield.Squares[coord.X, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X, coord.Y + 1].Revealed))
                         {
-                            percent = 103;
-                            return percent;
+
+                            // Checking if the right side are revealed
+                            if ((this.GameMinefield.Squares[coord.X + 1, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y].Revealed) && (this.GameMinefield.Squares[coord.X + 1, coord.Y].Revealed == false))
+                            {
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 1)
+                                {
+                                    // return 104 if the right is already revealed and in a 1 2 1 format of each other
+                                    percent = 104;
+                                    return percent;
+                                }
+
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 2 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 2)
+                                {
+                                    // return 104 if the right is already revealed and in a 2 1 2 format of each other
+                                    percent = 104;
+                                    return percent;
+                                }
+                            }
+
+                            // Checking if the left side are all revealed
+                            if ((this.GameMinefield.Squares[coord.X - 1, coord.Y + 1].Revealed) && (this.GameMinefield.Squares[coord.X - 1, coord.Y - 1].Revealed) && (this.GameMinefield.Squares[coord.X - 1, coord.Y].Revealed) && (this.GameMinefield.Squares[coord.X - 1, coord.Y].Revealed == false))
+                            {
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 2 && GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 1)
+                                {
+                                    // return 105 if the left is already revealed and in a 2 1 2 format of each other
+                                    percent = 105;
+                                    return percent;
+                                }
+                                if (GetStateNumber(new Coordinate(coord.X, coord.Y)) == 1 && GetStateNumber(new Coordinate(coord.X, coord.Y + 1)) == 2 && GetStateNumber(new Coordinate(coord.X, coord.Y - 1)) == 2)
+                                {
+                                    // return 105 if the left is already revealed and in a 2 1 2 format of each other
+                                    percent = 105;
+                                    return percent;
+                                }
+                            }
                         }
                     }
-                    percent = getPercent(sNum, sFlag, sGrass);
+                percent = getPercent(sNum, sFlag, sGrass);
                 }
-
-                
-
             }
             return percent;
         }
@@ -376,16 +439,14 @@ namespace VSProject
                     if (this.GameMinefield.Squares[xNum, yNum].Revealed == true)
                     {
                         // If not blank
-                        if (GetStateNumber(new Coordinate(xNum, yNum)) != 0 && RevealedCoords.Contains(new Coordinate(xNum, yNum)) == false)
+                        if (GetStateNumber(new Coordinate(xNum, yNum)) != 0 && !RevealedCoords.Contains(new Coordinate(xNum, yNum)))
                         {
                             percent2 = MinePercent(new Coordinate(xNum, yNum));
 
                             // If 100% sure then we dont need to find a higher one
                             if (percent2 >= 100)
                             {
-                                woo = new Coordinate(xNum, yNum);
-                                break;
-                                //return woo;
+                                return new Coordinate(xNum, yNum);
                             }
 
                             // If the new percent has a higher chance of bomb than other change
